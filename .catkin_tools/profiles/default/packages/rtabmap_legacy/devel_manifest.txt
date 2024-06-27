@@ -1,0 +1,15 @@
+rtabmap_ros/rtabmap_legacy
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/include/rtabmap_legacy/CameraConfig.h /home/sonieth/ros/depth_template/devel/include/rtabmap_legacy/CameraConfig.h
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/librtabmap_legacy_plugins.so /home/sonieth/ros/depth_template/devel/lib/librtabmap_legacy_plugins.so
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/pkgconfig/rtabmap_legacy.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/rtabmap_legacy.pc
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/rtabmap_legacy/camera /home/sonieth/ros/depth_template/devel/lib/rtabmap_legacy/camera
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/rtabmap_legacy/stereo_camera /home/sonieth/ros/depth_template/devel/lib/rtabmap_legacy/stereo_camera
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/python3/dist-packages/rtabmap_legacy/__init__.py /home/sonieth/ros/depth_template/devel/lib/python3/dist-packages/rtabmap_legacy/__init__.py
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/python3/dist-packages/rtabmap_legacy/cfg/CameraConfig.py /home/sonieth/ros/depth_template/devel/lib/python3/dist-packages/rtabmap_legacy/cfg/CameraConfig.py
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/lib/python3/dist-packages/rtabmap_legacy/cfg/__init__.py /home/sonieth/ros/depth_template/devel/lib/python3/dist-packages/rtabmap_legacy/cfg/__init__.py
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/share/rtabmap_legacy/cmake/rtabmap_legacyConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_legacy/cmake/rtabmap_legacyConfig-version.cmake
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/share/rtabmap_legacy/cmake/rtabmap_legacyConfig.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_legacy/cmake/rtabmap_legacyConfig.cmake
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/share/rtabmap_legacy/docs/CameraConfig-usage.dox /home/sonieth/ros/depth_template/devel/share/rtabmap_legacy/docs/CameraConfig-usage.dox
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/share/rtabmap_legacy/docs/CameraConfig.dox /home/sonieth/ros/depth_template/devel/share/rtabmap_legacy/docs/CameraConfig.dox
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_legacy/share/rtabmap_legacy/docs/CameraConfig.wikidoc /home/sonieth/ros/depth_template/devel/share/rtabmap_legacy/docs/CameraConfig.wikidoc

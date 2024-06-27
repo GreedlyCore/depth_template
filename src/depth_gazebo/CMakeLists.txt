@@ -186,6 +186,15 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
+catkin_install_python(PROGRAMS
+				scripts/message_handler.py
+				scripts/utils.py
+				scripts/grid_map.py
+				scripts/bresenham.py
+				scripts/rtime_gmapping_node.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 # install(TARGETS ${PROJECT_NAME}_node
@@ -235,15 +244,15 @@ add_executable(example1 src/example.cpp )
 add_executable(example2 src/example_voxelgrid.cpp )
 add_executable(example3 src/pcl_proccessing2.cc )
 add_executable(rgbd_noise src/add_noise_rgbd.cpp)
-add_executable(map_output src/map_maker.cpp)
 add_library(mecanum SHARED src/mecanum_controller.cc)
 add_executable(map_node src/occupancy_grid_node.cpp)
+# add_executable(map_output src/map_maker.cpp)
 
 target_link_libraries(example1 ${catkin_LIBRARIES})
 target_link_libraries(example2 ${catkin_LIBRARIES})
 target_link_libraries(example3 ${catkin_LIBRARIES})
 target_link_libraries(rgbd_noise ${catkin_LIBRARIES} ${Boost_LIBRARIES})
-target_link_libraries(map_output ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(mecanum ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 target_link_libraries (map_node ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
 # Eigen3::Eigen
+# target_link_libraries(map_output ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})

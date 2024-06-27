@@ -1,13 +1,16 @@
 <?xml version='1.0'?>
 <launch>
 
-  <!-- <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 base_link camera_depth_frame 50" /> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="static_broadcaster_map_base_link" args="0 0 0 0 0 0 base_link camera_bottom_screw_frame 50" /> -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="camera_bottom_screw_frame_to_base_link" args="0 0 0 0 0 0 base_link camera_bottom_screw_frame 100"/> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="static_broadcaster_map_base_link" args="0 0 0 0 0 0 base_link camera_color_optical_frame 50" /> -->
 
   <arg name="gazebo_gui" default="true"/>
   <arg name="rviz_gui" default="false"/>
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find depth_gazebo)/urdf/robot_omni.xacro'" />
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <!-- Send robot states to tf -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <param name="publish_frequency" type="double" value="40.0" />
     <remap from="/joint_states" to="/omni_control/joint_states" />
   </node>
@@ -15,14 +18,15 @@
   <rosparam file="$(find depth_gazebo)/config/omni_control.yaml" command="load"/>
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" />
   
+  <!-- SELECT THE WORLD TO TEST mapping: -->
+  <!-- test_lvl_v2.world || pub_lvl.world || best3.world || best2.world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find depth_gazebo)/worlds/best_world2.world"/>
+    <arg name="world_name" value="$(find depth_gazebo)/worlds/test_lvl_v2.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="$(arg gazebo_gui)"/>
     <arg name="debug" value="false"/>
   </include>
-
   <node name="depth_camera_gazebo_scene_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
         args="-urdf -param robot_description -model robot -x 1.0 -y 7.6 -z 0.05 -Y -1.57" />
 
@@ -30,27 +34,27 @@
         output="screen" ns="/omni_control"
         args="front_right_wheel_joint front_left_wheel_joint back_left_wheel_joint back_right_wheel_joint joint_state_controller"/>
 
-  <!-- Node for cmd_vel subscription -->
+  <!-- provide a movements via teleop  -->
   <node name="move_node" pkg="depth_gazebo" type="move.py"/>
+  <!-- remove ground plane from point cloud -->
   <node name="pcl_ground_removal" pkg="depth_gazebo" type="example3"/>
+  <!-- add gaussian noise to pointcloud -->
   <node name="rgbd_add_noise" pkg="depth_gazebo" type="rgbd_noise"/>
-  <node name="map_maker" pkg="depth_gazebo" type="map_output"/>
-  <node name="map_maker_node" pkg="depth_gazebo" type="occupancy_grid_mapping"/>
+  <!-- ??? -->
+  <node name="map_maker_node" pkg="depth_gazebo" type="map_node"/>
+  <!-- remove NaN and +inf & -inf from laserscan msg -->
   <node name="scan_filter_node" pkg="depth_gazebo" type="scan_filter.py"/>
-  
+
+  <!-- AMCL for provide  odom -> map transform -->
   <include file="$(find depth_gazebo)/launch/amcl_omni.launch"/>
+  
+  <!-- launch rtabmap_odom(not working) OR ORB SLAM 2 for providing tf: odom->base_link -->
+  <!-- or just provide dynamic broadcasting -->
+  <!-- <include file="$(find depth_gazebo)/launch/rtabmap.launch"/> -->
+  <!-- <include file="$(find depth_gazebo)/launch/depth.launch"/> -->
+  <node name="tf2_odom_to_base_link" pkg="depth_gazebo" type="odom_to_base_link_broadcaster.py"/>
+
+  <!-- provide depth_image -> laserscan msg -->
   <include file="$(find depth_gazebo)/launch/depth_to_laserscan.launch"/>
-
-    <!-- <node pkg="rtabmap_odom" type="rgbd_odometry" name="rgbd_odometry" output="screen">
-      <param name="frame_id" type="string" value="camera_depth_frame"/>
-      <param name="odom_frame_id" type="string" value="odom"/>
-      <param name="publish_tf" type="bool" value="true"/>
-      <remap from="rgb/image" to="/camera/color/image_raw"/>
-      <remap from="rgb/camera_info" to="/camera/depth/camera_info"/>
-      <remap from="depth/image" to="/camera/depth/image_raw"/>
-    </node> -->
-
-
-
 
 </launch>

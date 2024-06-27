@@ -8,7 +8,9 @@
     </gazebo>
 
     <gazebo>
-        <plugin name="mecanum" filename="libmecanum.so"/>
+        <plugin name="mecanum" filename="libmecanum.so">
+        <!-- <publishOdomTF>true</publishOdomTF> -->
+        </plugin>
     </gazebo>
 
 

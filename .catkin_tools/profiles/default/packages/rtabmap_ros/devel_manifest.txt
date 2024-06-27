@@ -1,0 +1,5 @@
+rtabmap_ros/rtabmap_ros
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_ros/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_ros/lib/pkgconfig/rtabmap_ros.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/rtabmap_ros.pc
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_ros/share/rtabmap_ros/cmake/rtabmap_rosConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_ros/cmake/rtabmap_rosConfig-version.cmake
+/home/sonieth/ros/depth_template/devel/.private/rtabmap_ros/share/rtabmap_ros/cmake/rtabmap_rosConfig.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_ros/cmake/rtabmap_rosConfig.cmake

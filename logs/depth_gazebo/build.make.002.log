@@ -1,7 +1,0 @@
-[ 42%] Built target example1
-[ 42%] Built target map_node
-[ 42%] Built target rgbd_noise
-[ 57%] Built target example2
-[ 78%] Built target example3
-[100%] Built target mecanum
-[100%] Built target map_output

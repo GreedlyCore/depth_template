@@ -83,7 +83,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/ros_ws/src/bachelor_scene/models/test_lvl_v2/bach_sc.dae</uri>
+              <uri>../models/test_lvl_v2/bach_sc.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -96,7 +96,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/ros_ws/src/bachelor_scene/models/test_lvl_v2/bach_sc.dae</uri>
+              <uri>../models/test_lvl_v2/bach_sc.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>

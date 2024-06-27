@@ -1,1 +1,0 @@
-/home/sonieth/ros/depth_template/devel/.private/octomap_server/lib/python3/dist-packages/octomap_server/cfg/OctomapServerConfig.py

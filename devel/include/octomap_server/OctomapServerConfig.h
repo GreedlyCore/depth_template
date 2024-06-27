@@ -1,1 +1,0 @@
-/home/sonieth/ros/depth_template/devel/.private/octomap_server/include/octomap_server/OctomapServerConfig.h
