@@ -48,6 +48,16 @@ memory
 string
 -
 
+/home/sonieth/ros/depth_template/src/realsense_gazebo_plugin/src/RealSensePlugin.cpp
+realsense_gazebo_plugin/RealSensePlugin.h
+/home/sonieth/ros/depth_template/src/realsense_gazebo_plugin/src/realsense_gazebo_plugin/RealSensePlugin.h
+gazebo/physics/physics.hh
+-
+gazebo/rendering/DepthCamera.hh
+-
+gazebo/sensors/sensors.hh
+-
+
 /home/sonieth/ros/depth_template/src/realsense_gazebo_plugin/src/gazebo_ros_realsense.cpp
 realsense_gazebo_plugin/gazebo_ros_realsense.h
 /home/sonieth/ros/depth_template/src/realsense_gazebo_plugin/src/realsense_gazebo_plugin/gazebo_ros_realsense.h
