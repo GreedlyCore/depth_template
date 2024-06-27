@@ -181,19 +181,6 @@ mecanum/fast:
 .PHONY : mecanum/fast
 
 #=============================================================================
-# Target rules for targets named map_output
-
-# Build rule for target.
-map_output: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 map_output
-.PHONY : map_output
-
-# fast build rule for target.
-map_output/fast:
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/build
-.PHONY : map_output/fast
-
-#=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -1470,33 +1457,6 @@ src/example_voxelgrid.cpp.s:
 	$(MAKE) -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/src/example_voxelgrid.cpp.s
 .PHONY : src/example_voxelgrid.cpp.s
 
-src/map_maker.o: src/map_maker.cpp.o
-
-.PHONY : src/map_maker.o
-
-# target to build an object file
-src/map_maker.cpp.o:
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/src/map_maker.cpp.o
-.PHONY : src/map_maker.cpp.o
-
-src/map_maker.i: src/map_maker.cpp.i
-
-.PHONY : src/map_maker.i
-
-# target to preprocess a source file
-src/map_maker.cpp.i:
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/src/map_maker.cpp.i
-.PHONY : src/map_maker.cpp.i
-
-src/map_maker.s: src/map_maker.cpp.s
-
-.PHONY : src/map_maker.s
-
-# target to generate assembly for a file
-src/map_maker.cpp.s:
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/src/map_maker.cpp.s
-.PHONY : src/map_maker.cpp.s
-
 src/mecanum_controller.o: src/mecanum_controller.cc.o
 
 .PHONY : src/mecanum_controller.o
@@ -1589,7 +1549,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... install/strip"
 	@echo "... mecanum"
-	@echo "... map_output"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_py"
@@ -1694,9 +1653,6 @@ help:
 	@echo "... src/example_voxelgrid.o"
 	@echo "... src/example_voxelgrid.i"
 	@echo "... src/example_voxelgrid.s"
-	@echo "... src/map_maker.o"
-	@echo "... src/map_maker.i"
-	@echo "... src/map_maker.s"
 	@echo "... src/mecanum_controller.o"
 	@echo "... src/mecanum_controller.i"
 	@echo "... src/mecanum_controller.s"

@@ -143,6 +143,26 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/depth_gazebo" TYPE FILE FILES "/home/sonieth/ros/depth_template/src/depth_gazebo/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/message_handler.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/utils.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/grid_map.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/bresenham.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/rtime_gmapping_node.py")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/sonieth/ros/depth_template/build/depth_gazebo/gtest/cmake_install.cmake")

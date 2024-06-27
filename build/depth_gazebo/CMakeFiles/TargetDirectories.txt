@@ -3,7 +3,6 @@
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/rebuild_cache.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/install/strip.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/mecanum.dir
-/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/map_output.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir

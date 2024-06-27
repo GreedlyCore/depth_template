@@ -54,7 +54,6 @@ CMAKE_BINARY_DIR = /home/sonieth/ros/depth_template/build/depth_gazebo
 
 # The main recursive "all" target.
 all: CMakeFiles/mecanum.dir/all
-all: CMakeFiles/map_output.dir/all
 all: CMakeFiles/rgbd_noise.dir/all
 all: CMakeFiles/example3.dir/all
 all: CMakeFiles/map_node.dir/all
@@ -71,7 +70,6 @@ preinstall: gtest/preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/mecanum.dir/clean
-clean: CMakeFiles/map_output.dir/clean
 clean: CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
 clean: CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clean
 clean: CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
@@ -228,7 +226,7 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 CMakeFiles/mecanum.dir/all:
 	$(MAKE) -f CMakeFiles/mecanum.dir/build.make CMakeFiles/mecanum.dir/depend
 	$(MAKE) -f CMakeFiles/mecanum.dir/build.make CMakeFiles/mecanum.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles --progress-num=19,20 "Built target mecanum"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles --progress-num=17,18 "Built target mecanum"
 .PHONY : CMakeFiles/mecanum.dir/all
 
 # Build rule for subdir invocation for target.
@@ -247,33 +245,6 @@ mecanum: CMakeFiles/mecanum.dir/rule
 CMakeFiles/mecanum.dir/clean:
 	$(MAKE) -f CMakeFiles/mecanum.dir/build.make CMakeFiles/mecanum.dir/clean
 .PHONY : CMakeFiles/mecanum.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/map_output.dir
-
-# All Build rule for target.
-CMakeFiles/map_output.dir/all:
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/depend
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles --progress-num=17,18 "Built target map_output"
-.PHONY : CMakeFiles/map_output.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/map_output.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/map_output.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles 0
-.PHONY : CMakeFiles/map_output.dir/rule
-
-# Convenience name for target.
-map_output: CMakeFiles/map_output.dir/rule
-
-.PHONY : map_output
-
-# clean rule for target.
-CMakeFiles/map_output.dir/clean:
-	$(MAKE) -f CMakeFiles/map_output.dir/build.make CMakeFiles/map_output.dir/clean
-.PHONY : CMakeFiles/map_output.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/tf2_msgs_generate_messages_nodejs.dir
@@ -471,7 +442,7 @@ CMakeFiles/actionlib_generate_messages_cpp.dir/clean:
 CMakeFiles/rgbd_noise.dir/all:
 	$(MAKE) -f CMakeFiles/rgbd_noise.dir/build.make CMakeFiles/rgbd_noise.dir/depend
 	$(MAKE) -f CMakeFiles/rgbd_noise.dir/build.make CMakeFiles/rgbd_noise.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles --progress-num=21,22 "Built target rgbd_noise"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles --progress-num=19,20 "Built target rgbd_noise"
 .PHONY : CMakeFiles/rgbd_noise.dir/all
 
 # Build rule for subdir invocation for target.
