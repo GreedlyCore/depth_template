@@ -1,0 +1,2 @@
+octomap_mapping/octomap_mapping
+/home/sonieth/ros/depth_template/devel/.private/octomap_mapping/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock

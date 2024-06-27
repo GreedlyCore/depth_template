@@ -1,0 +1,1 @@
+/home/sonieth/ros/depth_template/devel/.private/depthimage_to_laserscan/lib/python3/dist-packages/depthimage_to_laserscan/__init__.py

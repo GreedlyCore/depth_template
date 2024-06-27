@@ -1,0 +1,18 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "files.associations": {
+        "*.ccp": "c",
+        "normal_distribution.hpp": "c",
+        "thread.hpp": "c",
+        "random.hpp": "c",
+        "*.ipp": "cpp",
+        "iostream": "cpp",
+        "geometry": "cpp"
+    },
+    "cmake.sourceDirectory": "/home/sonieth/ros/depth_template/src/depth_gazebo"
+}

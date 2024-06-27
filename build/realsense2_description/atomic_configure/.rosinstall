@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sonieth/ros/depth_template/devel/.private/realsense2_description/setup.sh

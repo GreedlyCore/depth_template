@@ -1,0 +1,3 @@
+Symlinking /home/sonieth/ros/depth_template/devel/lib/pkgconfig/realsense2_description.pc
+Symlinking /home/sonieth/ros/depth_template/devel/share/realsense2_description/cmake/realsense2_descriptionConfig-version.cmake
+Symlinking /home/sonieth/ros/depth_template/devel/share/realsense2_description/cmake/realsense2_descriptionConfig.cmake

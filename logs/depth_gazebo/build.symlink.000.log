@@ -1,0 +1,10 @@
+Symlinking /home/sonieth/ros/depth_template/devel/lib/libmecanum.so
+Symlinking /home/sonieth/ros/depth_template/devel/lib/pkgconfig/depth_gazebo.pc
+Symlinking /home/sonieth/ros/depth_template/devel/lib/depth_gazebo/example1
+Symlinking /home/sonieth/ros/depth_template/devel/lib/depth_gazebo/example3
+Symlinking /home/sonieth/ros/depth_template/devel/lib/depth_gazebo/example2
+Symlinking /home/sonieth/ros/depth_template/devel/lib/depth_gazebo/map_node
+Symlinking /home/sonieth/ros/depth_template/devel/lib/depth_gazebo/rgbd_noise
+Symlinking /home/sonieth/ros/depth_template/devel/lib/depth_gazebo/map_output
+Symlinking /home/sonieth/ros/depth_template/devel/share/depth_gazebo/cmake/depth_gazeboConfig.cmake
+Symlinking /home/sonieth/ros/depth_template/devel/share/depth_gazebo/cmake/depth_gazeboConfig-version.cmake

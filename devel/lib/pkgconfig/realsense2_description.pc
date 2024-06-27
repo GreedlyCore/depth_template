@@ -1,0 +1,1 @@
+/home/sonieth/ros/depth_template/devel/.private/realsense2_description/lib/pkgconfig/realsense2_description.pc

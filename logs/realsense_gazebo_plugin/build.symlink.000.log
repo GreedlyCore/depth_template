@@ -1,0 +1,4 @@
+Symlinking /home/sonieth/ros/depth_template/devel/lib/librealsense_gazebo_plugin.so
+Symlinking /home/sonieth/ros/depth_template/devel/lib/pkgconfig/realsense_gazebo_plugin.pc
+Symlinking /home/sonieth/ros/depth_template/devel/share/realsense_gazebo_plugin/cmake/realsense_gazebo_pluginConfig.cmake
+Symlinking /home/sonieth/ros/depth_template/devel/share/realsense_gazebo_plugin/cmake/realsense_gazebo_pluginConfig-version.cmake

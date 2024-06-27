@@ -1,0 +1,32 @@
+[35m[1mScanning dependencies of target mecanum[0m
+[35m[1mScanning dependencies of target rgbd_noise[0m
+[35m[1mScanning dependencies of target map_output[0m
+[35m[1mScanning dependencies of target example3[0m
+[35m[1mScanning dependencies of target map_node[0m
+[35m[1mScanning dependencies of target example1[0m
+[35m[1mScanning dependencies of target example2[0m
+[  7%] [32mBuilding CXX object CMakeFiles/rgbd_noise.dir/src/add_noise_rgbd.cpp.o[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/map_node.dir/src/occupancy_grid_node.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/example2.dir/src/example_voxelgrid.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/example3.dir/src/pcl_proccessing2.cc.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/example1.dir/src/example.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/mecanum.dir/src/mecanum_controller.cc.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/map_output.dir/src/map_maker.cpp.o[0m
+[ 57%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/example1[0m
+[ 64%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/example2[0m
+[ 71%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/example3[0m
+[01m[K/home/sonieth/ros/depth_template/src/depth_gazebo/src/occupancy_grid_node.cpp:[m[K In function ‘[01m[Kdouble inverseSensorModel(double, double, double, double, double, double*)[m[K’:
+[01m[K/home/sonieth/ros/depth_template/src/depth_gazebo/src/occupancy_grid_node.cpp:84:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+   84 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[ 78%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/rgbd_noise[0m
+[ 78%] Built target example1
+[ 78%] Built target rgbd_noise
+[ 85%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/map_node[0m
+[ 85%] Built target map_node
+[ 85%] Built target example2
+[ 85%] Built target example3
+[ 92%] [32m[1mLinking CXX shared library /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/libmecanum.so[0m
+[ 92%] Built target mecanum
+[100%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/map_output[0m
+[100%] Built target map_output
