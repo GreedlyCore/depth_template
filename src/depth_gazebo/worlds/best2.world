@@ -233,10 +233,10 @@
         </link>
       </model>
       <model name='robot'>
-        <pose>1 7.6 0.111125 0 0 -1.57</pose>
+        <pose>0.0 0.0 0.0 0 0 -1.57</pose>
         <scale>1 1 1</scale>
         <link name='base_link'>
-          <pose>1 7.6 0.111125 0 0 -1.57</pose>
+          <pose>0.0 0.0 0.0 0 0 -1.57</pose>
           <velocity>-0 0 0 0 -0 0</velocity>
           <acceleration>-0 -0 0 0 -0 0</acceleration>
           <wrench>-0 -0 0 0 -0 0</wrench>

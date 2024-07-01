@@ -12,6 +12,9 @@ class TF2Broadcaster:
         # Initialize the transform broadcaster
         self.br = tf2_ros.TransformBroadcaster()
         self.t = TransformStamped()
+        
+        # Store the last timestamp to avoid redundant data
+        self.last_time = None
 
         # Subscribe to the /odom topic
         rospy.Subscriber('/odom', Odometry, self.odom_callback)
@@ -19,7 +22,15 @@ class TF2Broadcaster:
         rospy.spin()
 
     def odom_callback(self, msg):
-        self.t.header.stamp = rospy.Time.now()
+        # Check if the timestamp is the same as the last one
+        if self.last_time is not None and msg.header.stamp == self.last_time:
+            return
+
+        # Update the last timestamp
+        self.last_time = msg.header.stamp
+
+        # Use the timestamp from the odometry message
+        self.t.header.stamp = msg.header.stamp
         self.t.header.frame_id = msg.header.frame_id  # "odom"
         self.t.child_frame_id = msg.child_frame_id    # "base_link"
         

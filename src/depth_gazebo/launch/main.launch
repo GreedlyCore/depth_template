@@ -28,7 +28,8 @@
     <arg name="debug" value="false"/>
   </include>
   <node name="depth_camera_gazebo_scene_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-        args="-urdf -param robot_description -model robot -x 1.0 -y 7.6 -z 0.05 -Y -1.57" />
+        args="-urdf -param robot_description -model robot -x 1.0 -y 1.0 -z 0.05 -Y -1.57" />
+         <!-- -x 1.0 -y 7.6 -z 0.05 -Y -1.57 -->
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
         output="screen" ns="/omni_control"
@@ -40,8 +41,8 @@
   <node name="pcl_ground_removal" pkg="depth_gazebo" type="example3"/>
   <!-- add gaussian noise to pointcloud -->
   <node name="rgbd_add_noise" pkg="depth_gazebo" type="rgbd_noise"/>
-  <!-- ??? -->
-  <node name="map_maker_node" pkg="depth_gazebo" type="map_node"/>
+  <!-- map bayes binary static filter -->
+  <node name="mapping_node" pkg="depth_gazebo" type="occupancy_grid.py"/>
   <!-- remove NaN and +inf & -inf from laserscan msg -->
   <node name="scan_filter_node" pkg="depth_gazebo" type="scan_filter.py"/>
 

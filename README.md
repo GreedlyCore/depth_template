@@ -46,7 +46,7 @@ rostopic hz /TOPIC_NAME
 - special flags for debugging big messages via `rostopic echo`: --noarr , --nostr
 - You can save map via cmd:
 ```
-rosrun map_server map_saver --occ 90 --free 10 -f mymap map:=/best_map
+rosrun map_server map_saver --occ 90 --free 10 -f FILE_MAP_NAME map:=/map
 ```
 - See TF tree
 ```

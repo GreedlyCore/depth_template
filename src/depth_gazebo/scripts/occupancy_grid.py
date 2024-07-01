@@ -3,11 +3,9 @@ import numpy as np
 import rospy
 import tf2_ros
 from sensor_msgs.msg import LaserScan
-from geometry_msgs.msg import TransformStamped, Point, PointStamped, Pose
+from geometry_msgs.msg import Point, PointStamped, Pose
 from nav_msgs.msg import OccupancyGrid, MapMetaData, Odometry
 from tf2_geometry_msgs.tf2_geometry_msgs import do_transform_point
-from tf2_ros import LookupException, ConnectivityException, ExtrapolationException
-
 
 from utils import prob_to_log_odds, log_odds_to_prob, linear_mapping_of_values
 
@@ -23,9 +21,9 @@ PRIOR_PROB = 0.5
 OCC_PROB = 0.8
 FREE_PROB = 0.2
 
-class EPuckNode:
+class Mapping:
     def __init__(self):
-        rospy.init_node('one_more_node', anonymous=False)
+        rospy.init_node('mapping_node', anonymous=False)
         rospy.loginfo("creation of the map  has been started.")
 
         # Initialize tf2
@@ -40,17 +38,6 @@ class EPuckNode:
         self.robot_y = 0
         # Initialize map publisher
         self.map_publisher = rospy.Publisher('/map', OccupancyGrid, queue_size=1 )
-
-        # Publish a null static transform from 'map' to 'odom'
-        self.tf_broadcaster = tf2_ros.StaticTransformBroadcaster()
-        tf = TransformStamped()
-        tf.header.stamp = rospy.Time.now()
-        tf.header.frame_id = 'map'
-        tf.child_frame_id = 'odom'
-        tf.transform.translation.x = 0.0
-        tf.transform.translation.y = 0.0
-        tf.transform.translation.z = 0.0
-        self.tf_broadcaster.sendTransform(tf)
 
         # Initialize the occupancy grid message
         self.occupancy_grid_msg = OccupancyGrid()
@@ -124,9 +111,9 @@ class EPuckNode:
         x0, y0 = self.__odom_coords_to_2d_array(origin.point.x, origin.point.y)
         x1, y1 = self.__odom_coords_to_2d_array(target.point.x, target.point.y)
 
-        # rospy.loginfo(f"checking input1: ({origin}) &&  ({target})")
+        rospy.loginfo(f"checking input1: ({origin}) \n&&\n  ({target})")
 
-        # rospy.loginfo(f"checking input2: ({x0},{y0}) && ({x1},{y1})")
+        rospy.loginfo(f"checking input2: ({x0},{y0}) && ({x1},{y1})")
         
 
         dx = np.abs(x1 - x0)
@@ -165,7 +152,6 @@ class EPuckNode:
         angle_min = msg.angle_min
         angle_increment = msg.angle_increment
 
-        # try:
         transform = self.tf_buffer.lookup_transform(to_frame, from_frame, rospy.Time(0), rospy.Duration(1.0))
 
         for i, range_value in enumerate(msg.ranges):
@@ -182,18 +168,15 @@ class EPuckNode:
             laser_base_point.header.stamp = now
             laser_base_point.point.x = self.robot_x
             laser_base_point.point.y = self.robot_y
-            laser_base_point.point.z = 0
-            # lp = laser point
+            laser_base_point.point.z = 0    
             lp_in_odom_frame = do_transform_point(laser_point, transform)
-            # lp_base_in_odom_frame = do_transform_point(laser_base_point, transform)
+        
             
-            
-
             perceptual_range = self.__get_perceptual_range(
                 laser_base_point, lp_in_odom_frame
             )
 
-            # rospy.loginfo(f"info message: {perceptual_range}")
+            rospy.loginfo(f"info message: {perceptual_range}")
             
 
             for j, (ix, iy) in enumerate(perceptual_range):
@@ -202,9 +185,6 @@ class EPuckNode:
                 if l_prev is None: continue
                 l = l_prev + prob_to_log_odds(p) - prob_to_log_odds(PRIOR_PROB)
                 self.mark_map(ix, iy, value=l)
-
-        # except (LookupException, ConnectivityException, ExtrapolationException) as e:
-        #     rospy.logerr(f"Problem when processing LaserScan message: {e}")
 
     def inverse_range_sensor_model(self, i, len_perceptual_range):
         """
@@ -218,7 +198,7 @@ class EPuckNode:
 
 if __name__ == '__main__':
     try:
-        epuck_controller = EPuckNode()
+        map_node = Mapping()
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
