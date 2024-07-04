@@ -41,8 +41,8 @@ void cloud_cb (const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
   seg.setOptimizeCoefficients(true);
   // The four coefficients of the plane are its Hessian Normal form: [normal_x normal_y normal_z d]  
   seg.setModelType(pcl::SACMODEL_PLANE); // used to determine plane models. 
-  seg.setMaxIterations(1000);
-  seg.setDistanceThreshold(0.08);
+  seg.setMaxIterations(1500); //1000-->1200-->1500
+  seg.setDistanceThreshold(0.08); //0.08 --> 0.05
   seg.setInputCloud(cloud_filtered);
   seg.segment(*inliers, *coefficients);
 
@@ -69,10 +69,7 @@ int main (int argc, char** argv)
   ros::init (argc, argv, "pcl_ground_removal");
   ros::NodeHandle nh;
 
-  // Create a ROS subscriber for the input point cloud
   ros::Subscriber sub = nh.subscribe ("/camera/depth/color/points", 1, cloud_cb);
-
-  // Create a ROS publisher for the output point cloud
   pub = nh.advertise<sensor_msgs::PointCloud2> ("output", 1);
 
   ros::spin ();

@@ -3,16 +3,33 @@
 ## ITMO practice, second year robotics
 
 <p align="center">
-<img src = "Docs/gazebo.JPG?raw=true" width="80%"/>
+<img src = "Docs/gazebo.jpg?raw=true" width="70%"/>
 </p>
 
-ROS_VERSION: Noetic
+ROS_VERSION: 1, Noetic
 
 Here you can see a workspace with all essential packages, other dependencies (if needed) you can instal via classic commands:
 ```
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
+```
+
+you can run naive cartographer with:
+```
+roslaunch depth_gazebo main_diff_naive.launch
+```
+you can run gmapping cartographer with:
+```
+roslaunch depth_gazebo main_diff_gmapping.launch
+```
+(NOT WORKING YET) -- you can run google cartographer with:
+```
+roslaunch depth_gazebo main_google.launch
+```
+you can run naive cartographer with omni wheeled mobile robot (have got some problems, unstable):
+```
+roslaunch depth_gazebo main_google.launch
 ```
 
 ## Manual installation of packages & dependencies

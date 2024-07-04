@@ -239,20 +239,21 @@ catkin_install_python(PROGRAMS
 # set(Boost_DIR /usr/share/doc/libboost-all-dev)
    
 
+# EXAMPLE OF ADDING CPP NODES
 # add_executable(NAME_OF_THE_ROSRUN_EXEC_FILE src/example.cpp)
-add_executable(example1 src/example.cpp )
-add_executable(example2 src/example_voxelgrid.cpp )
-add_executable(example3 src/pcl_proccessing2.cc )
+
+add_executable(pcl_proccessing src/pcl_proccessing.cc )
 add_executable(rgbd_noise src/add_noise_rgbd.cpp)
 add_library(mecanum SHARED src/mecanum_controller.cc)
-add_executable(map_node src/occupancy_grid_node.cpp)
-# add_executable(map_output src/map_maker.cpp)
+add_library(depthimage_noise src/add_noise_depthimage.cpp)
 
-target_link_libraries(example1 ${catkin_LIBRARIES})
-target_link_libraries(example2 ${catkin_LIBRARIES})
-target_link_libraries(example3 ${catkin_LIBRARIES})
+# target_link_libraries(NAME_OF_THE_ROSRUN_EXEC_FILE ${LIB1} ${LIB2} ${LIB3})
+target_link_libraries(pcl_proccessing ${catkin_LIBRARIES})
 target_link_libraries(rgbd_noise ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 target_link_libraries(mecanum ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
-target_link_libraries (map_node ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
-# Eigen3::Eigen
-# target_link_libraries(map_output ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(depthimage_noise  ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS} ${Boost_LIBRARIES})
+
+
+install(TARGETS depthimage_noise
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

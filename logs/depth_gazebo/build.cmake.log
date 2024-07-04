@@ -111,6 +111,6 @@ Not searching for unused variables given on the command line.
 [36m--[0m Installing devel-space wrapper /home/sonieth/ros/depth_template/src/depth_gazebo/scripts/bresenham.py to /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo
 [36m--[0m Installing devel-space wrapper /home/sonieth/ros/depth_template/src/depth_gazebo/scripts/rtime_gmapping_node.py to /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo
 [36m--[0m Configuring done
-[33mWARNING: Target "map_node" requests linking to directory "/usr/include/opencv4".  Targets may link only to libraries.  CMake is dropping the item.[0m
+[33mWARNING: Target "depthimage_noise" requests linking to directory "/usr/include/opencv4".  Targets may link only to libraries.  CMake is dropping the item.[0m
 [36m--[0m Generating done
 [36m--[0m Build files have been written to: /home/sonieth/ros/depth_template/build/depth_gazebo

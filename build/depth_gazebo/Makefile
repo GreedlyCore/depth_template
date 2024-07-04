@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named depthimage_noise
+
+# Build rule for target.
+depthimage_noise: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 depthimage_noise
+.PHONY : depthimage_noise
+
+# fast build rule for target.
+depthimage_noise/fast:
+	$(MAKE) -f CMakeFiles/depthimage_noise.dir/build.make CMakeFiles/depthimage_noise.dir/build
+.PHONY : depthimage_noise/fast
+
+#=============================================================================
 # Target rules for targets named mecanum
 
 # Build rule for target.
@@ -179,6 +192,19 @@ mecanum: cmake_check_build_system
 mecanum/fast:
 	$(MAKE) -f CMakeFiles/mecanum.dir/build.make CMakeFiles/mecanum.dir/build
 .PHONY : mecanum/fast
+
+#=============================================================================
+# Target rules for targets named pcl_proccessing
+
+# Build rule for target.
+pcl_proccessing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pcl_proccessing
+.PHONY : pcl_proccessing
+
+# fast build rule for target.
+pcl_proccessing/fast:
+	$(MAKE) -f CMakeFiles/pcl_proccessing.dir/build.make CMakeFiles/pcl_proccessing.dir/build
+.PHONY : pcl_proccessing/fast
 
 #=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_nodejs
@@ -298,19 +324,6 @@ tf_generate_messages_nodejs/fast:
 .PHONY : tf_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named example3
-
-# Build rule for target.
-example3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example3
-.PHONY : example3
-
-# fast build rule for target.
-example3/fast:
-	$(MAKE) -f CMakeFiles/example3.dir/build.make CMakeFiles/example3.dir/build
-.PHONY : example3/fast
-
-#=============================================================================
 # Target rules for targets named tf_generate_messages_lisp
 
 # Build rule for target.
@@ -428,19 +441,6 @@ std_msgs_generate_messages_py/fast:
 .PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named map_node
-
-# Build rule for target.
-map_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 map_node
-.PHONY : map_node
-
-# fast build rule for target.
-map_node/fast:
-	$(MAKE) -f CMakeFiles/map_node.dir/build.make CMakeFiles/map_node.dir/build
-.PHONY : map_node/fast
-
-#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -517,19 +517,6 @@ nodelet_generate_messages_lisp: cmake_check_build_system
 nodelet_generate_messages_lisp/fast:
 	$(MAKE) -f CMakeFiles/nodelet_generate_messages_lisp.dir/build.make CMakeFiles/nodelet_generate_messages_lisp.dir/build
 .PHONY : nodelet_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named example1
-
-# Build rule for target.
-example1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example1
-.PHONY : example1
-
-# fast build rule for target.
-example1/fast:
-	$(MAKE) -f CMakeFiles/example1.dir/build.make CMakeFiles/example1.dir/build
-.PHONY : example1/fast
 
 #=============================================================================
 # Target rules for targets named actionlib_generate_messages_lisp
@@ -686,19 +673,6 @@ doxygen: cmake_check_build_system
 doxygen/fast:
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
 .PHONY : doxygen/fast
-
-#=============================================================================
-# Target rules for targets named example2
-
-# Build rule for target.
-example2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example2
-.PHONY : example2
-
-# fast build rule for target.
-example2/fast:
-	$(MAKE) -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/build
-.PHONY : example2/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
@@ -1376,6 +1350,33 @@ gtest/fast:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+src/add_noise_depthimage.o: src/add_noise_depthimage.cpp.o
+
+.PHONY : src/add_noise_depthimage.o
+
+# target to build an object file
+src/add_noise_depthimage.cpp.o:
+	$(MAKE) -f CMakeFiles/depthimage_noise.dir/build.make CMakeFiles/depthimage_noise.dir/src/add_noise_depthimage.cpp.o
+.PHONY : src/add_noise_depthimage.cpp.o
+
+src/add_noise_depthimage.i: src/add_noise_depthimage.cpp.i
+
+.PHONY : src/add_noise_depthimage.i
+
+# target to preprocess a source file
+src/add_noise_depthimage.cpp.i:
+	$(MAKE) -f CMakeFiles/depthimage_noise.dir/build.make CMakeFiles/depthimage_noise.dir/src/add_noise_depthimage.cpp.i
+.PHONY : src/add_noise_depthimage.cpp.i
+
+src/add_noise_depthimage.s: src/add_noise_depthimage.cpp.s
+
+.PHONY : src/add_noise_depthimage.s
+
+# target to generate assembly for a file
+src/add_noise_depthimage.cpp.s:
+	$(MAKE) -f CMakeFiles/depthimage_noise.dir/build.make CMakeFiles/depthimage_noise.dir/src/add_noise_depthimage.cpp.s
+.PHONY : src/add_noise_depthimage.cpp.s
+
 src/add_noise_rgbd.o: src/add_noise_rgbd.cpp.o
 
 .PHONY : src/add_noise_rgbd.o
@@ -1402,60 +1403,6 @@ src/add_noise_rgbd.s: src/add_noise_rgbd.cpp.s
 src/add_noise_rgbd.cpp.s:
 	$(MAKE) -f CMakeFiles/rgbd_noise.dir/build.make CMakeFiles/rgbd_noise.dir/src/add_noise_rgbd.cpp.s
 .PHONY : src/add_noise_rgbd.cpp.s
-
-src/example.o: src/example.cpp.o
-
-.PHONY : src/example.o
-
-# target to build an object file
-src/example.cpp.o:
-	$(MAKE) -f CMakeFiles/example1.dir/build.make CMakeFiles/example1.dir/src/example.cpp.o
-.PHONY : src/example.cpp.o
-
-src/example.i: src/example.cpp.i
-
-.PHONY : src/example.i
-
-# target to preprocess a source file
-src/example.cpp.i:
-	$(MAKE) -f CMakeFiles/example1.dir/build.make CMakeFiles/example1.dir/src/example.cpp.i
-.PHONY : src/example.cpp.i
-
-src/example.s: src/example.cpp.s
-
-.PHONY : src/example.s
-
-# target to generate assembly for a file
-src/example.cpp.s:
-	$(MAKE) -f CMakeFiles/example1.dir/build.make CMakeFiles/example1.dir/src/example.cpp.s
-.PHONY : src/example.cpp.s
-
-src/example_voxelgrid.o: src/example_voxelgrid.cpp.o
-
-.PHONY : src/example_voxelgrid.o
-
-# target to build an object file
-src/example_voxelgrid.cpp.o:
-	$(MAKE) -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/src/example_voxelgrid.cpp.o
-.PHONY : src/example_voxelgrid.cpp.o
-
-src/example_voxelgrid.i: src/example_voxelgrid.cpp.i
-
-.PHONY : src/example_voxelgrid.i
-
-# target to preprocess a source file
-src/example_voxelgrid.cpp.i:
-	$(MAKE) -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/src/example_voxelgrid.cpp.i
-.PHONY : src/example_voxelgrid.cpp.i
-
-src/example_voxelgrid.s: src/example_voxelgrid.cpp.s
-
-.PHONY : src/example_voxelgrid.s
-
-# target to generate assembly for a file
-src/example_voxelgrid.cpp.s:
-	$(MAKE) -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/src/example_voxelgrid.cpp.s
-.PHONY : src/example_voxelgrid.cpp.s
 
 src/mecanum_controller.o: src/mecanum_controller.cc.o
 
@@ -1484,59 +1431,32 @@ src/mecanum_controller.cc.s:
 	$(MAKE) -f CMakeFiles/mecanum.dir/build.make CMakeFiles/mecanum.dir/src/mecanum_controller.cc.s
 .PHONY : src/mecanum_controller.cc.s
 
-src/occupancy_grid_node.o: src/occupancy_grid_node.cpp.o
+src/pcl_proccessing.o: src/pcl_proccessing.cc.o
 
-.PHONY : src/occupancy_grid_node.o
-
-# target to build an object file
-src/occupancy_grid_node.cpp.o:
-	$(MAKE) -f CMakeFiles/map_node.dir/build.make CMakeFiles/map_node.dir/src/occupancy_grid_node.cpp.o
-.PHONY : src/occupancy_grid_node.cpp.o
-
-src/occupancy_grid_node.i: src/occupancy_grid_node.cpp.i
-
-.PHONY : src/occupancy_grid_node.i
-
-# target to preprocess a source file
-src/occupancy_grid_node.cpp.i:
-	$(MAKE) -f CMakeFiles/map_node.dir/build.make CMakeFiles/map_node.dir/src/occupancy_grid_node.cpp.i
-.PHONY : src/occupancy_grid_node.cpp.i
-
-src/occupancy_grid_node.s: src/occupancy_grid_node.cpp.s
-
-.PHONY : src/occupancy_grid_node.s
-
-# target to generate assembly for a file
-src/occupancy_grid_node.cpp.s:
-	$(MAKE) -f CMakeFiles/map_node.dir/build.make CMakeFiles/map_node.dir/src/occupancy_grid_node.cpp.s
-.PHONY : src/occupancy_grid_node.cpp.s
-
-src/pcl_proccessing2.o: src/pcl_proccessing2.cc.o
-
-.PHONY : src/pcl_proccessing2.o
+.PHONY : src/pcl_proccessing.o
 
 # target to build an object file
-src/pcl_proccessing2.cc.o:
-	$(MAKE) -f CMakeFiles/example3.dir/build.make CMakeFiles/example3.dir/src/pcl_proccessing2.cc.o
-.PHONY : src/pcl_proccessing2.cc.o
+src/pcl_proccessing.cc.o:
+	$(MAKE) -f CMakeFiles/pcl_proccessing.dir/build.make CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.o
+.PHONY : src/pcl_proccessing.cc.o
 
-src/pcl_proccessing2.i: src/pcl_proccessing2.cc.i
+src/pcl_proccessing.i: src/pcl_proccessing.cc.i
 
-.PHONY : src/pcl_proccessing2.i
+.PHONY : src/pcl_proccessing.i
 
 # target to preprocess a source file
-src/pcl_proccessing2.cc.i:
-	$(MAKE) -f CMakeFiles/example3.dir/build.make CMakeFiles/example3.dir/src/pcl_proccessing2.cc.i
-.PHONY : src/pcl_proccessing2.cc.i
+src/pcl_proccessing.cc.i:
+	$(MAKE) -f CMakeFiles/pcl_proccessing.dir/build.make CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.i
+.PHONY : src/pcl_proccessing.cc.i
 
-src/pcl_proccessing2.s: src/pcl_proccessing2.cc.s
+src/pcl_proccessing.s: src/pcl_proccessing.cc.s
 
-.PHONY : src/pcl_proccessing2.s
+.PHONY : src/pcl_proccessing.s
 
 # target to generate assembly for a file
-src/pcl_proccessing2.cc.s:
-	$(MAKE) -f CMakeFiles/example3.dir/build.make CMakeFiles/example3.dir/src/pcl_proccessing2.cc.s
-.PHONY : src/pcl_proccessing2.cc.s
+src/pcl_proccessing.cc.s:
+	$(MAKE) -f CMakeFiles/pcl_proccessing.dir/build.make CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.s
+.PHONY : src/pcl_proccessing.cc.s
 
 # Help Target
 help:
@@ -1547,8 +1467,10 @@ help:
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... depthimage_noise"
 	@echo "... install/strip"
 	@echo "... mecanum"
+	@echo "... pcl_proccessing"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_py"
@@ -1558,7 +1480,6 @@ help:
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... rgbd_noise"
 	@echo "... tf_generate_messages_nodejs"
-	@echo "... example3"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf_generate_messages_cpp"
 	@echo "... topic_tools_generate_messages_nodejs"
@@ -1569,7 +1490,6 @@ help:
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... map_node"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
@@ -1577,7 +1497,6 @@ help:
 	@echo "... tests"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... nodelet_generate_messages_lisp"
-	@echo "... example1"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... clean_test_results"
 	@echo "... roscpp_generate_messages_lisp"
@@ -1590,7 +1509,6 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
-	@echo "... example2"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... topic_tools_generate_messages_py"
 	@echo "... roscpp_generate_messages_cpp"
@@ -1644,24 +1562,18 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/add_noise_depthimage.o"
+	@echo "... src/add_noise_depthimage.i"
+	@echo "... src/add_noise_depthimage.s"
 	@echo "... src/add_noise_rgbd.o"
 	@echo "... src/add_noise_rgbd.i"
 	@echo "... src/add_noise_rgbd.s"
-	@echo "... src/example.o"
-	@echo "... src/example.i"
-	@echo "... src/example.s"
-	@echo "... src/example_voxelgrid.o"
-	@echo "... src/example_voxelgrid.i"
-	@echo "... src/example_voxelgrid.s"
 	@echo "... src/mecanum_controller.o"
 	@echo "... src/mecanum_controller.i"
 	@echo "... src/mecanum_controller.s"
-	@echo "... src/occupancy_grid_node.o"
-	@echo "... src/occupancy_grid_node.i"
-	@echo "... src/occupancy_grid_node.s"
-	@echo "... src/pcl_proccessing2.o"
-	@echo "... src/pcl_proccessing2.i"
-	@echo "... src/pcl_proccessing2.s"
+	@echo "... src/pcl_proccessing.o"
+	@echo "... src/pcl_proccessing.i"
+	@echo "... src/pcl_proccessing.s"
 .PHONY : help
 
 

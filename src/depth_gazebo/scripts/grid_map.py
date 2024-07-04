@@ -139,7 +139,7 @@ class GridMap:
 		y = int((y_cont - self.Y_lim[0]) / self.resolution)
 		return (x,y)
 
-	def update_common(self, x, y, p):
+	def update(self, x, y, p):
 		"""
 		Update x and y coordinates in discretized grid map
 		"""

@@ -1,7 +1,7 @@
 [35m[1mScanning dependencies of target DepthImageToLaserScan[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/DepthImageToLaserScan.dir/src/DepthImageToLaserScan.cpp.o[0m
 [35m[1mScanning dependencies of target depthimage_to_laserscan_gencfg[0m
-[ 11%] [34m[1mGenerating dynamic reconfigure files from cfg/Depth.cfg: /home/sonieth/ros/depth_template/devel/.private/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthConfig.h /home/sonieth/ros/depth_template/devel/.private/depthimage_to_laserscan/lib/python3/dist-packages/depthimage_to_laserscan/cfg/DepthConfig.py[0m
-[ 22%] [32mBuilding CXX object CMakeFiles/DepthImageToLaserScan.dir/src/DepthImageToLaserScan.cpp.o[0m
+[ 22%] [34m[1mGenerating dynamic reconfigure files from cfg/Depth.cfg: /home/sonieth/ros/depth_template/devel/.private/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthConfig.h /home/sonieth/ros/depth_template/devel/.private/depthimage_to_laserscan/lib/python3/dist-packages/depthimage_to_laserscan/cfg/DepthConfig.py[0m
 Generating reconfiguration files for Depth in depthimage_to_laserscan
 Wrote header file in /home/sonieth/ros/depth_template/devel/.private/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthConfig.h
 [ 22%] Built target depthimage_to_laserscan_gencfg

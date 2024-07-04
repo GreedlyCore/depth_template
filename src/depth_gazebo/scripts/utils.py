@@ -18,7 +18,7 @@ def lidar_scan(msgScan):
 
         # distance calculation
         if ( msgScan.ranges[i] > msgScan.range_max ):
-            dist = msgScan.range_max
+            dist = msgScan.range_max + 5
         elif ( msgScan.ranges[i] < msgScan.range_min ):
             dist = msgScan.range_min
         else:
@@ -81,7 +81,7 @@ def get_odom_position(msgOdom):
 ##################
 
 def prob_to_log_odds(x):
-    return np.log(x) - np.log(1 - x)
+     return np.log(x) - np.log(1 - x)
 
 
 def log_odds_to_prob(x):

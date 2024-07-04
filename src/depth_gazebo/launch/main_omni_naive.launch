@@ -16,12 +16,12 @@
   </node>
 
   <rosparam file="$(find depth_gazebo)/config/omni_control.yaml" command="load"/>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find depth_gazebo)/rviz/omni_naive.rviz" required="true" />
   
   <!-- SELECT THE WORLD TO TEST mapping: -->
   <!-- test_lvl_v2.world || pub_lvl.world || best3.world || best2.world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find depth_gazebo)/worlds/test_lvl_v2.world"/>
+    <arg name="world_name" value="$(find depth_gazebo)/worlds/best3.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="$(arg gazebo_gui)"/>
@@ -38,13 +38,15 @@
   <!-- provide a movements via teleop  -->
   <node name="move_node" pkg="depth_gazebo" type="move.py"/>
   <!-- remove ground plane from point cloud -->
-  <node name="pcl_ground_removal" pkg="depth_gazebo" type="example3"/>
+  <node name="pcl_ground_removal" pkg="depth_gazebo" type="pcl_proccessing"/>
   <!-- add gaussian noise to pointcloud -->
   <node name="rgbd_add_noise" pkg="depth_gazebo" type="rgbd_noise"/>
   <!-- map bayes binary static filter -->
   <node name="mapping_node" pkg="depth_gazebo" type="occupancy_grid.py"/>
   <!-- remove NaN and +inf & -inf from laserscan msg -->
   <node name="scan_filter_node" pkg="depth_gazebo" type="scan_filter.py"/>
+
+  <node name="depthimage_add_noise" pkg="depth_gazebo" type="depthimage_noise"/>
 
   <!-- AMCL for provide  odom -> map transform -->
   <include file="$(find depth_gazebo)/launch/amcl_omni.launch"/>

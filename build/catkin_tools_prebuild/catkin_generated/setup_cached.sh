@@ -9,6 +9,8 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/sonieth/ros/depth_template/devel/.private/catkin_tools_prebuild:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH='/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins'
+export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'
 export PWD='/home/sonieth/ros/depth_template/build/catkin_tools_prebuild'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/sonieth/ros/depth_template/devel/.private/catkin_tools_prebuild/share/common-lisp'
+export PYTHONPATH='/opt/ros/noetic/lib/python3/dist-packages'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/sonieth/ros/depth_template/devel/.private/catkin_tools_prebuild/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/sonieth/ros/depth_template/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"

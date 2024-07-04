@@ -1,8 +1,10 @@
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/install/local.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/list_install_components.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/rebuild_cache.dir
+/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/depthimage_noise.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/install/strip.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/mecanum.dir
+/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/pcl_proccessing.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir
@@ -12,7 +14,6 @@
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/rgbd_noise.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir
-/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/example3.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf_generate_messages_lisp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tf_generate_messages_cpp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/topic_tools_generate_messages_nodejs.dir
@@ -23,7 +24,6 @@
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/pcl_msgs_generate_messages_cpp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/std_msgs_generate_messages_py.dir
-/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/map_node.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/std_msgs_generate_messages_cpp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
@@ -31,7 +31,6 @@
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/tests.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/nodelet_generate_messages_lisp.dir
-/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/example1.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/clean_test_results.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/roscpp_generate_messages_lisp.dir
@@ -44,7 +43,6 @@
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/download_extra_data.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/doxygen.dir
-/home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/example2.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/topic_tools_generate_messages_py.dir
 /home/sonieth/ros/depth_template/build/depth_gazebo/CMakeFiles/roscpp_generate_messages_cpp.dir
