@@ -172,9 +172,9 @@ Visualization Manager:
         odom:
           Value: true
         wheel_left:
-          Value: true
+          Value: false
         wheel_right:
-          Value: true
+          Value: false
       Marker Alpha: 1
       Marker Scale: 2
       Name: TF
@@ -302,7 +302,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 16.342041015625
+      Distance: 15.197824478149414
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -310,17 +310,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 2.839123010635376
-        Y: 2.622969150543213
-        Z: 5.179104328155518
+        X: -0.3708486557006836
+        Y: 1.0055294036865234
+        Z: 5.543223857879639
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3447966575622559
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
-      Yaw: 3.093592882156372
+      Yaw: 3.123593330383301
     Saved: ~
 Window Geometry:
   Displays:
@@ -338,5 +338,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1386
-  X: 72
-  Y: 62
+  X: 470
+  Y: 71

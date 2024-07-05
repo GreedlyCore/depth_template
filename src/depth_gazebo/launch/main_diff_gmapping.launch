@@ -20,7 +20,6 @@
     <node name="my_robot_model_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model my_robot_model -x 1 -y 1 -z 0"/>
 
-    <!-- <node name="move_node" pkg="depth_gazebo" type="move.py"/> -->
     <!-- remove ground plane from point cloud -->
     <node name="pcl_ground_removal" pkg="depth_gazebo" type="pcl_proccessing"/>
     <!-- add gaussian noise to pointcloud -->

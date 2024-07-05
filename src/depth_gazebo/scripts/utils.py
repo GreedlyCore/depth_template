@@ -95,3 +95,38 @@ def linear_mapping_of_values(x, old_min=0, old_max=1, new_min=0, new_max=100):
     old_range = old_max - old_min
     new_range = new_max - new_min
     return ((((x - old_min) * new_range) / old_range) + new_min).astype(int)
+
+def generate_transformation_matrix(translation, theta):
+    """
+    Generate a 3x3 homogeneous transformation matrix from translation and rotation.
+    """
+    t_x, t_y = translation
+
+    transformation_matrix = np.array([
+        [np.cos(theta), -np.sin(theta), t_x],
+        [np.sin(theta), np.cos(theta),  t_y],
+        [     0,             0,           1]])
+    return transformation_matrix
+
+def transform_point(point, transformation_matrix):
+    # need an numpy array !!!
+    transformed_point_homogeneous = np.dot(transformation_matrix, point)
+    return transformed_point_homogeneous[:2]
+
+def lookup_transform_dummy(frame_from, frame_to):
+    """
+    Dummy function to simulate the transformation lookup.
+    """
+    # For simplicity, we assume some fixed transformations here.
+    # In reality, you should retrieve the actual transformations from your system.
+    if frame_from == "camera" and frame_to == "odom":
+        translation = [1.0, 2.0]  # Example translation
+        rotation = np.deg2rad(45)  # Example rotation in radians
+        return generate_transformation_matrix(translation, rotation)
+    
+    if frame_from == "map" and frame_to == "odom":
+        translation = [3.0, 4.0]  # Example translation
+        rotation = np.deg2rad(30)  # Example rotation in radians
+        return generate_transformation_matrix(translation, rotation)
+    
+    return np.eye(3)
