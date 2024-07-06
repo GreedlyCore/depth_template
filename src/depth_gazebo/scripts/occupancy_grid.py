@@ -220,23 +220,19 @@ class Mapping:
         # Normalize phi to be within [-π, π]
         phi = np.round( (phi + np.pi) % (2 * np.pi) - np.pi , 4)
         
-        # k = np.argmin( np.absolute(phi - self.angles) )
+        k = np.argmin( np.absolute(phi - self.angles) )
         # print(f"ROBOT THETA: {self.robot_theta}")
         # print(f"ANGLES: r = {r} phi = {phi} k = {k} \n POSES: ({x}, {y}) , ({self.robot_pixel_x}, {self.robot_pixel_y})\n")
         # assert r > 0 and phi != 0, f"(r, phi) == (negative , 0)"
+        # rospy.loginfo(f"{r} > {min(self.range_max, np.round(self.ranges[k], 4) + self.alpha)} or {np.round(abs(phi - self.angles[k]), 5)} > {self.beta}")
         
-        
-        # print(f"{r} > {min(self.range_max, np.round(self.ranges[k], 4) + self.alpha)} or {np.round(abs(phi - self.angles[k]), 5)} > {self.beta}")
         for k in range(len(self.angles)):
             if r > min(self.range_max, np.round(self.ranges[k], 4) + self.alpha) or np.round(abs(phi - self.angles[k]), 5) > self.beta:
-                return self.l0
+                return self.l0 # out of range case
             if self.ranges[k] < self.range_max and abs(r - self.ranges[k]) < self.alpha:
-                return self.OCC_L
+                return self.OCC_L # if range for cell is over  ( +-self.alpha ) than z^k_t - our measurement
             if r <= self.ranges[k]:
-                return self.FREE_L
-            else:
-                raise("Sorry, no")
-
+                return self.FREE_L # else case
 
     def spin(self):
         rospy.sleep(5)
@@ -256,17 +252,17 @@ class Mapping:
                 base_point = np.array([self.robot_x, self.robot_y])
 
                 transform_cam_to_map = msg_to_se3( self.tf_buffer.lookup_transform("map", self.from_frame, rospy.Time(0), rospy.Duration(1.0)))
-                laser_point_odom_frame = transform_point(laser_point, transform_cam_to_map)
+                laser_point_map_frame = transform_point(laser_point, transform_cam_to_map)
                 # base_point_odom = transform_point(base_point, transform_map_to_odom)
 
                 perceptual_range = self.get_perceptual_range(
-                    base_point, laser_point_odom_frame)
+                    base_point, laser_point_map_frame)
                 for (ix, iy) in perceptual_range:
                     # p = self.inverse_sensor_model(j, len(perceptual_range))
                     L = self.inverse_range_sensor_model(ix, iy) - self.l0
-                    # if L > 0: print(f"L is: {L}")
+                    
                     self.mark_map(ix, iy, value = L)
-
+            print(f"L is: {L}")
             
             self.rate.sleep()
 

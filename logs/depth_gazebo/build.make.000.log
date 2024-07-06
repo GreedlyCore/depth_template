@@ -1,16 +1,16 @@
-[35m[1mScanning dependencies of target depthimage_noise[0m
-[ 12%] [32mBuilding CXX object CMakeFiles/depthimage_noise.dir/src/add_noise_depthimage.cpp.o[0m
 [35m[1mScanning dependencies of target mecanum[0m
-[ 25%] [32mBuilding CXX object CMakeFiles/mecanum.dir/src/mecanum_controller.cc.o[0m
-[ 37%] [32m[1mLinking CXX shared library /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/libdepthimage_noise.so[0m
-[ 37%] Built target depthimage_noise
 [35m[1mScanning dependencies of target pcl_proccessing[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.o[0m
+[35m[1mScanning dependencies of target depthimage_noise[0m
 [35m[1mScanning dependencies of target rgbd_noise[0m
-[ 62%] [32mBuilding CXX object CMakeFiles/rgbd_noise.dir/src/add_noise_rgbd.cpp.o[0m
-[ 75%] [32m[1mLinking CXX shared library /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/libmecanum.so[0m
-[ 75%] Built target mecanum
+[ 12%] [32mBuilding CXX object CMakeFiles/depthimage_noise.dir/src/add_noise_depthimage.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/rgbd_noise.dir/src/add_noise_rgbd.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/mecanum.dir/src/mecanum_controller.cc.o[0m
+[ 62%] [32m[1mLinking CXX shared library /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/libdepthimage_noise.so[0m
+[ 62%] Built target depthimage_noise
+[ 75%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/rgbd_noise[0m
 [ 87%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/pcl_proccessing[0m
-[100%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/rgbd_noise[0m
-[100%] Built target rgbd_noise
-[100%] Built target pcl_proccessing
+[ 87%] Built target rgbd_noise
+[ 87%] Built target pcl_proccessing
+[100%] [32m[1mLinking CXX shared library /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/libmecanum.so[0m
+[100%] Built target mecanum

@@ -1,8 +1,0 @@
-rtabmap_ros/rtabmap_costmap_plugins
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/lib/librtabmap_costmap_plugins.so /home/sonieth/ros/depth_template/devel/lib/librtabmap_costmap_plugins.so
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/lib/librtabmap_costmap_plugins2.so /home/sonieth/ros/depth_template/devel/lib/librtabmap_costmap_plugins2.so
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/lib/pkgconfig/rtabmap_costmap_plugins.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/rtabmap_costmap_plugins.pc
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/lib/rtabmap_costmap_plugins/voxel_markers /home/sonieth/ros/depth_template/devel/lib/rtabmap_costmap_plugins/voxel_markers
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/share/rtabmap_costmap_plugins/cmake/rtabmap_costmap_pluginsConfig.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_costmap_plugins/cmake/rtabmap_costmap_pluginsConfig.cmake
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_costmap_plugins/share/rtabmap_costmap_plugins/cmake/rtabmap_costmap_pluginsConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_costmap_plugins/cmake/rtabmap_costmap_pluginsConfig-version.cmake

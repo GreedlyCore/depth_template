@@ -1,6 +1,0 @@
-rtabmap_ros/rtabmap_examples
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_examples/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_examples/lib/pkgconfig/rtabmap_examples.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/rtabmap_examples.pc
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_examples/lib/rtabmap_examples/external_loop_detection_example /home/sonieth/ros/depth_template/devel/lib/rtabmap_examples/external_loop_detection_example
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_examples/share/rtabmap_examples/cmake/rtabmap_examplesConfig.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_examples/cmake/rtabmap_examplesConfig.cmake
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_examples/share/rtabmap_examples/cmake/rtabmap_examplesConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_examples/cmake/rtabmap_examplesConfig-version.cmake

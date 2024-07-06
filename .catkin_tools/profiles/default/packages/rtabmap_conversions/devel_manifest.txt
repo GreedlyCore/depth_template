@@ -1,6 +1,0 @@
-rtabmap_ros/rtabmap_conversions
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_conversions/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_conversions/lib/librtabmap_conversions.so /home/sonieth/ros/depth_template/devel/lib/librtabmap_conversions.so
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_conversions/lib/pkgconfig/rtabmap_conversions.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/rtabmap_conversions.pc
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_conversions/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig-version.cmake
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_conversions/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_conversions/cmake/rtabmap_conversionsConfig.cmake

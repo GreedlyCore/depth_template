@@ -1,7 +1,4 @@
-[35m[1mScanning dependencies of target pcl_proccessing[0m
 [ 25%] Built target depthimage_noise
-[ 50%] Built target rgbd_noise
-[ 75%] Built target mecanum
-[ 87%] [32mBuilding CXX object CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.o[0m
-[100%] [32m[1mLinking CXX executable /home/sonieth/ros/depth_template/devel/.private/depth_gazebo/lib/depth_gazebo/pcl_proccessing[0m
-[100%] Built target pcl_proccessing
+[ 75%] Built target rgbd_noise
+[ 75%] Built target pcl_proccessing
+[100%] Built target mecanum

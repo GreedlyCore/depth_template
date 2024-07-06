@@ -1,5 +1,0 @@
-rtabmap_ros/rtabmap_launch
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_launch/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_launch/lib/pkgconfig/rtabmap_launch.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/rtabmap_launch.pc
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_launch/share/rtabmap_launch/cmake/rtabmap_launchConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_launch/cmake/rtabmap_launchConfig-version.cmake
-/home/sonieth/ros/depth_template/devel/.private/rtabmap_launch/share/rtabmap_launch/cmake/rtabmap_launchConfig.cmake /home/sonieth/ros/depth_template/devel/share/rtabmap_launch/cmake/rtabmap_launchConfig.cmake

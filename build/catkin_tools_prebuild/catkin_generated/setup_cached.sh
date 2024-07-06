@@ -13,4 +13,4 @@ export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64
 export PWD='/home/sonieth/ros/depth_template/build/catkin_tools_prebuild'
 export PYTHONPATH='/opt/ros/noetic/lib/python3/dist-packages'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/sonieth/ros/depth_template/devel/.private/catkin_tools_prebuild/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/sonieth/ros/depth_template/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"
+export ROS_PACKAGE_PATH='/home/sonieth/ros/depth_template/build/catkin_tools_prebuild:/home/sonieth/ros/depth_template/src/depth_gazebo:/home/sonieth/ros/depth_template/src/depthimage_to_laserscan:/home/sonieth/ros/depth_template/src/realsense2_description:/home/sonieth/ros/depth_template/src/realsense_gazebo_plugin:/opt/ros/noetic/share'

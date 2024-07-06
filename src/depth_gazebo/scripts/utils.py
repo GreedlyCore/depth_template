@@ -55,8 +55,8 @@ def transform_orientation(orientation_q):
     """
     orientation_list = [ orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
     (roll, pitch, yaw) = euler_from_quaternion(orientation_list)
-    if yaw < 0:
-        yaw = 2 * np.pi + yaw  # 0->360 degrees >> 0->2pi
+    # if yaw < 0:
+    #     yaw = 2 * np.pi + yaw  # 0->360 degrees >> 0->2pi
     return yaw
 
 
