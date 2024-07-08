@@ -89,3 +89,21 @@ def msg_to_se3(msg):
     g = tr.quaternion_matrix(q)
     g[0:3, -1] = p
     return g
+
+def rpy_to_rotation_matrix(yaw):
+    return np.array([ [np.cos(yaw), -np.sin(yaw), 0, 0],
+                      [np.sin(yaw), np.cos(yaw),  0, 0],
+                      [    0,           0,        1, 0],
+                      [    0,           0,        0, 1]])
+def xyz_to_translation_matrix(xyz_offsets):
+    return np.array([ [    1, 0, 0, xyz_offsets[0]],
+                      [    0, 1, 0, xyz_offsets[1]],
+                      [    0, 0, 1,              0],
+                      [    0, 0, 0,              1]])
+
+# Combine translation and rotation into a homogeneous transformation matrix
+def create_transformation_matrix(xyz_offsets, theta):
+    translation_matrix = xyz_to_translation_matrix(xyz_offsets)
+    rotation_matrix = rpy_to_rotation_matrix(theta)
+    transformation_matrix = np.dot(translation_matrix, rotation_matrix)
+    return transformation_matrix

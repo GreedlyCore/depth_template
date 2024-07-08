@@ -18,7 +18,7 @@
         <param name="publish_frequency" type="double" value="40.0" />
     </node>
     <node name="my_robot_model_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-urdf -param robot_description -model my_robot_model -x 1 -y 1 -z 0"/>
+          args="-urdf -param robot_description -model my_robot_model -x 0 -y 0 -z 0"/>
 
 
     <!-- <node pkg="map_server" type="map_server" name="map_server_node" args="$(find depth_gazebo)/BIG.yaml"/>     -->
@@ -34,8 +34,10 @@
     <!-- remove NaN and +inf & -inf from laserscan msg -->
     <node name="scan_filter_node" pkg="depth_gazebo" type="scan_filter.py"/>
 
+    <node name="tf2_world_to_base_link" pkg="depth_gazebo" type="world_to_base_link_broadcaster.py"/>
     <!-- AMCL for provide  odom -> map transform -->
-    <include file="$(find depth_gazebo)/launch/amcl_diff.launch"/>
+    <!-- <include file="$(find depth_gazebo)/launch/amcl_diff.launch"/> -->
+
     <!-- provide depth_image -> laserscan msg -->
     <include file="$(find depth_gazebo)/launch/depth_to_laserscan.launch"/>
 

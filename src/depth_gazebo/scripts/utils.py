@@ -51,12 +51,10 @@ def lidar_scan_xy(distances, angles, x_odom, y_odom, theta_odom):
 
 def transform_orientation(orientation_q):
     """
-    Transform theta to [radians] from [quaternion orientation]
+    Transform theta, yaw angle to [radians] from [quaternion orientation]
     """
     orientation_list = [ orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
     (roll, pitch, yaw) = euler_from_quaternion(orientation_list)
-    # if yaw < 0:
-    #     yaw = 2 * np.pi + yaw  # 0->360 degrees >> 0->2pi
     return yaw
 
 
@@ -130,3 +128,18 @@ def lookup_transform_dummy(frame_from, frame_to):
         return generate_transformation_matrix(translation, rotation)
     
     return np.eye(3)
+
+def angle_diff(a, b):
+    a = np.arctan2(np.sin(a), np.cos(a))
+    b = np.arctan2(np.sin(b), np.cos(b))
+
+    d1 = a - b
+    d2 = 2 * np.pi - np.abs(d1)
+
+    if d1 > 0.0:
+        d2 *= -1.0
+    
+    if np.abs(d1) < np.abs(d2):
+        return d1
+    else:
+        return d2

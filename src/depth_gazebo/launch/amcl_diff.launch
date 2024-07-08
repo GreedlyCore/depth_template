@@ -7,6 +7,10 @@
     <param name="use_map_topic" value="true"/>
     <param name="first_map_only" value="false"/>
     
+    <param name="initial_pose_x" value="0.0"/>
+    <param name="initial_pose_y" value="0.0"/>
+    <param name="initial_pose_a" value="0.0"/>
+
     <!-- Publish scans from best pose at a max of 10 Hz -->
     <param name="odom_model_type" value="diff"/>
     <param name="transform_tolerance" value="0.2" />
