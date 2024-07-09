@@ -28,7 +28,7 @@ class Mapping:
     def __init__(self):
         rospy.init_node('mapping_node', anonymous=False)
         rospy.loginfo("creation of the map  has been started.")
-        self.rate = rospy.Rate(50) 
+        self.rate = rospy.Rate(30) 
         # Initialize tf2
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
@@ -47,7 +47,7 @@ class Mapping:
 
         self.z_random = 0.05
         self.laser_z_hit = 0.95
-        self.laser_sigma_hit = 0.5
+        self.laser_sigma_hit = 0.2
 
         self.l0 = np.round(np.log(OCC_PROB/FREE_PROB),3)#prob_to_log_odds(PRIOR_PROB)
         self.OCC_L = np.round(1.5 * self.l0, 3)
@@ -57,9 +57,7 @@ class Mapping:
         self.beta = 0.3 # angle in rads (???) # the opening angle of this sensor is
 
         rospy.Subscriber('/scan_filtered', LaserScan, self.get_scan, queue_size=1)
-        # rospy.Subscriber('/odom', Odometry, self.get_odom, queue_size=3)  
         rospy.Subscriber('/ground/state', Odometry, self.get_gazebo, queue_size=1)  
-        # rospy.Subscriber('/amcl_pose', PoseWithCovarianceStamped, self.get_pose, queue_size=1)  
         self.map_publisher = rospy.Publisher('/map', OccupancyGrid, queue_size=1)
 
         test_scan = rospy.wait_for_message('/scan', LaserScan, rospy.Duration(5.0))
@@ -129,8 +127,8 @@ class Mapping:
 
         self.occupancy_grid_msg.header.stamp = rospy.Time.now()
         # row-major order
-        map = self.likelihood_field * 100
-        self.occupancy_grid_msg.data = map.astype(int).T.reshape(map.size, order='C').tolist()  
+        # map = self.likelihood_field * 100
+        self.occupancy_grid_msg.data = self.map.astype(int).T.reshape(self.map.size, order='C').tolist()  
         self.map_publisher.publish(self.occupancy_grid_msg)
 
     def coords_to_2d_array(self, x, y):
@@ -173,11 +171,6 @@ class Mapping:
                 err += dx
                 y0 += sy
         return perceptual_range
-
-    def get_odom(self, msg):
-        self.robot_x =  msg.pose.pose.position.x 
-        self.robot_y =  msg.pose.pose.position.y 
-        self.robot_theta = transform_orientation(msg.pose.pose.orientation)
     
     # in earth frame, but --> map
     def get_gazebo(self, msg):
@@ -197,21 +190,23 @@ class Mapping:
         
         for i in range(MAP_SIZE_X):
             for j in range(MAP_SIZE_Y):
-                if self.get_map_val(i , j) == 100:
+                if self.map[i , j] == 100:
                     arr.append((i, j))
-        
+        # print(f"NOW arr is: lrn - {len(arr)}\n -- {arr}")
         for k in range(len(ranges)):
             if ranges[k] > self.range_max: continue
             dist = 1000
-            # x0, y0 = self.coords_to_2d_array(robot_pose[0], robot_pose[1])
             #laser point
             x, y = self.coords_to_2d_array(robot_pose[0] + ranges[k] * np.cos(robot_pose[2] + self.angles[k]), 
                                              robot_pose[1] + ranges[k] * np.sin(robot_pose[2] + self.angles[k]))
             
             for (occ_x,occ_y) in arr:
-                r = np.sqrt( (x - occ_x)**2 + (y - occ_y)**2  )
+                r = np.sqrt( (x - occ_x)**2 + (y - occ_y)**2  ) * RESOLUTION
                 if r < dist: dist = r
-            if dist == 1000: dist = 0
+            if dist == 1000: 
+                dist = 0
+                rospy.loginfo("info message")
+            
             q =  self.laser_z_hit * np.exp(-(dist ** 2) / (2 * self.laser_sigma_hit ** 2)) + self.z_random/self.range_max
             self.likelihood_field[x, y] = q
 
@@ -231,30 +226,24 @@ class Mapping:
         r = np.sqrt( (x - robot_pixel_x) **2 + (y - robot_pixel_y)**2 ) * RESOLUTION
         phi = angle_diff(np.arctan2((y - robot_pixel_y), (x - robot_pixel_x))  ,   robot_pose[2])
         k = np.argmin(np.absolute(np.array([angle_diff(phi, angle) for angle in self.angles]))) 
-        # print(f"ANGLES: r = {r} phi = {phi} k = {k} \n POSES: ({x}, {y}) , ({self.robot_pixel_x}, {self.robot_pixel_y})\n")
-        # assert r > 0 and phi != 0, f"(r, phi) == (negative , 0)"
         
         if not np.isnan(ranges[k]):
-            # rospy.loginfo(f"1st: {r} > {min(self.range_max, np.round(self.ranges[k], 4) + self.alpha)} or {np.round(abs( angle_diff( phi, self.angles[k]) ), 5)} > {self.beta}")
-            # rospy.loginfo(f"2nd: {ranges[k]} < {self.range_max} and {abs(r - ranges[k])} < {self.alpha}")
-            # rospy.loginfo(f"3rd: {r} <= {ranges[k]}")
             if r > min(self.range_max, ranges[k] + self.alpha) or abs( angle_diff( phi, self.angles[k]))> self.beta:
                 return self.l0 # out of range case
             if ranges[k] < self.range_max and abs(r - ranges[k]) < self.alpha:
                 return self.OCC_L # if range for cell is over  ( +-self.alpha ) than z^k_t - our measurement
             if r <= ranges[k]:
                 return self.FREE_L # else case
+    
     def spin(self):
         rospy.sleep(2)
         while not rospy.is_shutdown():
             self.likelihood_model([self.robot_x, self.robot_y, self.robot_theta], self.ranges)
             for i in range(MAP_SIZE_X):
                 for j in range(MAP_SIZE_Y):
-                    if self.likelihood_field[i, j] >= 0.5: # occ case
+                    if self.likelihood_field[i, j] >= 0.3: # occ case
                         self.map[i, j] = 100
-                    else:
-                        self.map[i, j] = 0
-            # print(f"{self.likelihood_field}")
+                    else: self.map[i, j] = 0
             self.pub_map()
             self.rate.sleep()
 
