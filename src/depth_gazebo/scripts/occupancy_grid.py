@@ -36,7 +36,6 @@ class Mapping:
         self.from_frame = "lidar_link" #"camera_bottom_screw_frame" 
         self.to_frame = "map"
 
-        self.robot_name = 'my_robot_model'
         self.ranges = []
         self.angle_min = 0
         self.range_max = 0
@@ -45,6 +44,10 @@ class Mapping:
         self.robot_y = 0
         self.robot_pixel_x = 0
         self.robot_pixel_y = 0
+
+        self.z_random = 0.05
+        self.laser_z_hit = 0.95
+        self.laser_sigma_hit = 0.5
 
         self.l0 = np.round(np.log(OCC_PROB/FREE_PROB),3)#prob_to_log_odds(PRIOR_PROB)
         self.OCC_L = np.round(1.5 * self.l0, 3)
@@ -81,10 +84,11 @@ class Mapping:
             )
         )
 
-        self.map = self.generate_map()
+        self.map = self.generate_map(0.0)
+        self.likelihood_field = self.generate_map(0.0)
         self.pub_map()
 
-    def generate_map(self):
+    def generate_map(self, value):
         """
         Initialize map in the odom frame.
         """
@@ -92,7 +96,7 @@ class Mapping:
         # probability matrix in log-odds scale:
         #-np.log(OCC_PROB)/np.log(FREE_PROB) 
         # TODO is minus needed? really?
-        return np.full(shape = (MAP_SIZE_X, MAP_SIZE_Y), fill_value = 0.0)
+        return np.full(shape = (MAP_SIZE_X, MAP_SIZE_Y), fill_value = value)
 
     def get_shape(self):
         """
@@ -122,11 +126,10 @@ class Mapping:
         """
         Publish an OccupancyGrid to the /map topic.
         """
-        map = log_odds_to_prob(self.map)
-        map = linear_mapping_of_values(map)  # To visualize in Rviz
 
         self.occupancy_grid_msg.header.stamp = rospy.Time.now()
         # row-major order
+        map = self.likelihood_field * 100
         self.occupancy_grid_msg.data = map.astype(int).T.reshape(map.size, order='C').tolist()  
         self.map_publisher.publish(self.occupancy_grid_msg)
 
@@ -189,6 +192,32 @@ class Mapping:
         """
         self.ranges = msg.ranges
 
+    def likelihood_model(self, robot_pose, ranges):
+        arr = []
+        
+        for i in range(MAP_SIZE_X):
+            for j in range(MAP_SIZE_Y):
+                if self.get_map_val(i , j) == 100:
+                    arr.append((i, j))
+        
+        for k in range(len(ranges)):
+            if ranges[k] > self.range_max: continue
+            dist = 1000
+            # x0, y0 = self.coords_to_2d_array(robot_pose[0], robot_pose[1])
+            #laser point
+            x, y = self.coords_to_2d_array(robot_pose[0] + ranges[k] * np.cos(robot_pose[2] + self.angles[k]), 
+                                             robot_pose[1] + ranges[k] * np.sin(robot_pose[2] + self.angles[k]))
+            
+            for (occ_x,occ_y) in arr:
+                r = np.sqrt( (x - occ_x)**2 + (y - occ_y)**2  )
+                if r < dist: dist = r
+            if dist == 1000: dist = 0
+            q =  self.laser_z_hit * np.exp(-(dist ** 2) / (2 * self.laser_sigma_hit ** 2)) + self.z_random/self.range_max
+            self.likelihood_field[x, y] = q
+
+
+
+    
     def inverse_range_sensor_model(self,x, y, robot_pose, ranges):
         """
         Specifies the probability of occupancy of the grid cell m_(x,y) conditioned on the measurement z.
@@ -216,28 +245,17 @@ class Mapping:
             if r <= ranges[k]:
                 return self.FREE_L # else case
     def spin(self):
-        rospy.sleep(5)
+        rospy.sleep(2)
         while not rospy.is_shutdown():
+            self.likelihood_model([self.robot_x, self.robot_y, self.robot_theta], self.ranges)
+            for i in range(MAP_SIZE_X):
+                for j in range(MAP_SIZE_Y):
+                    if self.likelihood_field[i, j] >= 0.5: # occ case
+                        self.map[i, j] = 100
+                    else:
+                        self.map[i, j] = 0
+            # print(f"{self.likelihood_field}")
             self.pub_map()
-            for i, range_value in enumerate(self.ranges):
-                if np.isinf(range_value) or np.isnan(range_value):
-                    continue
-
-                # laser_point - one dot from laserscan in camera_frame
-                # base_point - estimated robot position via /amcl_pose
-                # provide projections --> we need 4x1 vector because we have 4x4 matrix
-                
-                perceptual_range = self.get_perceptual_range(
-                    [self.robot_x, self.robot_y, self.robot_theta], [range_value, self.angles[i]])
-                for (ix, iy) in perceptual_range:
-                    L = self.inverse_range_sensor_model(ix, iy, [self.robot_x, self.robot_y, self.robot_theta], self.ranges) - self.l0
-                    self.mark_map(ix, iy, value = L)
-
-            # print(f"ROBOT PIXEL:({self.robot_pixel_x}, {self.robot_pixel_y})\n POSES:{perceptual_range}")
-            # print("NEXT...\n")
-            # print(f"ROBOT THETA: {self.robot_theta}")
-            # print(f"L is: {L}")
-            
             self.rate.sleep()
 
 
