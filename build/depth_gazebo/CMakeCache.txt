@@ -707,7 +707,7 @@ RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
 //Name of the computer/site where compile is being run
-SITE:STRING=gamer
+SITE:STRING=pc-music
 
 //The directory containing a CMake configuration file for Simbody.
 Simbody_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/simbody
@@ -945,7 +945,7 @@ nodelet_DIR:PATH=/opt/ros/noetic/share/nodelet/cmake
 nodelet_topic_tools_DIR:PATH=/opt/ros/noetic/share/nodelet_topic_tools/cmake
 
 //The directory containing a CMake configuration file for octomap.
-octomap_DIR:PATH=/opt/ros/noetic/share/octomap
+octomap_DIR:PATH=/usr/lib/x86_64-linux-gnu/octomap
 
 //Path to a library.
 onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/libgazebo_opende_ou.so

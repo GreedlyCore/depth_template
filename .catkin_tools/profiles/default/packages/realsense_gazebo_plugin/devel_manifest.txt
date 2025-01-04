@@ -1,6 +1,0 @@
-realsense_gazebo_plugin
-/home/sonieth/ros/depth_template/devel/.private/realsense_gazebo_plugin/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
-/home/sonieth/ros/depth_template/devel/.private/realsense_gazebo_plugin/lib/librealsense_gazebo_plugin.so /home/sonieth/ros/depth_template/devel/lib/librealsense_gazebo_plugin.so
-/home/sonieth/ros/depth_template/devel/.private/realsense_gazebo_plugin/lib/pkgconfig/realsense_gazebo_plugin.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/realsense_gazebo_plugin.pc
-/home/sonieth/ros/depth_template/devel/.private/realsense_gazebo_plugin/share/realsense_gazebo_plugin/cmake/realsense_gazebo_pluginConfig.cmake /home/sonieth/ros/depth_template/devel/share/realsense_gazebo_plugin/cmake/realsense_gazebo_pluginConfig.cmake
-/home/sonieth/ros/depth_template/devel/.private/realsense_gazebo_plugin/share/realsense_gazebo_plugin/cmake/realsense_gazebo_pluginConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/realsense_gazebo_plugin/cmake/realsense_gazebo_pluginConfig-version.cmake

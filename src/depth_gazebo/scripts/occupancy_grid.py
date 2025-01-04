@@ -27,7 +27,7 @@ FREE_PROB = 0.3
 class Mapping:
     def __init__(self):
         rospy.init_node('mapping_node', anonymous=False)
-        rospy.loginfo("creation of the map  has been started.")
+        rospy.loginfo("creation of the map -- started.")
         self.rate = rospy.Rate(30) 
         # Initialize tf2
         self.tf_buffer = tf2_ros.Buffer()
@@ -52,8 +52,7 @@ class Mapping:
         self.l0 = np.round(np.log(OCC_PROB/FREE_PROB),3)#prob_to_log_odds(PRIOR_PROB)
         self.OCC_L = np.round(1.5 * self.l0, 3)
         self.FREE_L = np.round(0.5 * self.l0, 3)
-        # already divided by two
-        self.alpha = 0.05
+        self.alpha = 0.05 # already divided by two
         self.beta = 0.3 # angle in rads (???) # the opening angle of this sensor is
 
         rospy.Subscriber('/scan_filtered', LaserScan, self.get_scan, queue_size=1)
@@ -85,6 +84,7 @@ class Mapping:
         self.map = self.generate_map(0.0)
         self.likelihood_field = self.generate_map(0.0)
         self.pub_map()
+        rospy.loginfo("creation of the map -- finished.")
 
     def generate_map(self, value):
         """
@@ -174,7 +174,6 @@ class Mapping:
     
     # in earth frame, but --> map
     def get_gazebo(self, msg):
-        # rospy.loginfo(f"GAZEBO:\n X: {msg.pose[-1].position.x }\nY: {msg.pose[-1].position.y }\n X: {msg.pose[-1].position.x }\n THETA: {np.round(transform_orientation(msg.pose[-1].orientation), 3)}")        
         self.robot_x =  msg.pose.pose.position.x 
         self.robot_y =  msg.pose.pose.position.y 
         self.robot_theta =  transform_orientation(msg.pose.pose.orientation)
@@ -236,7 +235,7 @@ class Mapping:
                 return self.FREE_L # else case
     
     def spin(self):
-        rospy.sleep(2)
+        rospy.sleep(2) # give an extra time to init everything
         while not rospy.is_shutdown():
             self.likelihood_model([self.robot_x, self.robot_y, self.robot_theta], self.ranges)
             for i in range(MAP_SIZE_X):
@@ -246,8 +245,6 @@ class Mapping:
                     else: self.map[i, j] = 0
             self.pub_map()
             self.rate.sleep()
-
-
 try:
     map_node = Mapping()
     map_node.spin()

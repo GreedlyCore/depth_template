@@ -144,10 +144,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/message_handler.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/depth_gazebo" TYPE PROGRAM FILES "/home/sonieth/ros/depth_template/build/depth_gazebo/catkin_generated/installspace/utils.py")
 endif()
 

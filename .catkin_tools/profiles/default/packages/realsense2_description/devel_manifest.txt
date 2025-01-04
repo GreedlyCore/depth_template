@@ -1,5 +1,0 @@
-realsense2_description
-/home/sonieth/ros/depth_template/devel/.private/realsense2_description/cmake.lock /home/sonieth/ros/depth_template/devel/./cmake.lock
-/home/sonieth/ros/depth_template/devel/.private/realsense2_description/lib/pkgconfig/realsense2_description.pc /home/sonieth/ros/depth_template/devel/lib/pkgconfig/realsense2_description.pc
-/home/sonieth/ros/depth_template/devel/.private/realsense2_description/share/realsense2_description/cmake/realsense2_descriptionConfig-version.cmake /home/sonieth/ros/depth_template/devel/share/realsense2_description/cmake/realsense2_descriptionConfig-version.cmake
-/home/sonieth/ros/depth_template/devel/.private/realsense2_description/share/realsense2_description/cmake/realsense2_descriptionConfig.cmake /home/sonieth/ros/depth_template/devel/share/realsense2_description/cmake/realsense2_descriptionConfig.cmake

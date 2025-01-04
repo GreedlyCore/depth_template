@@ -87,5 +87,6 @@
         "variant": "cpp",
         "bit": "cpp"
     },
-    "cmake.sourceDirectory": "/home/sonieth/ros/depth_template/src/depth_gazebo"
+    "cmake.sourceDirectory": "/home/sonieth/ros/depth_template/src/depth_gazebo",
+    "ros.distro": "noetic"
 }

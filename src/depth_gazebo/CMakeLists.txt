@@ -187,7 +187,7 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 # )
 
 catkin_install_python(PROGRAMS
-				scripts/message_handler.py
+				# scripts/message_handler.py
 				scripts/utils.py
 				scripts/grid_map.py
 				scripts/bresenham.py

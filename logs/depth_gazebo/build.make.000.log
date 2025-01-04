@@ -1,7 +1,7 @@
-[35m[1mScanning dependencies of target mecanum[0m
 [35m[1mScanning dependencies of target pcl_proccessing[0m
-[35m[1mScanning dependencies of target depthimage_noise[0m
 [35m[1mScanning dependencies of target rgbd_noise[0m
+[35m[1mScanning dependencies of target depthimage_noise[0m
+[35m[1mScanning dependencies of target mecanum[0m
 [ 12%] [32mBuilding CXX object CMakeFiles/depthimage_noise.dir/src/add_noise_depthimage.cpp.o[0m
 [ 25%] [32mBuilding CXX object CMakeFiles/pcl_proccessing.dir/src/pcl_proccessing.cc.o[0m
 [ 37%] [32mBuilding CXX object CMakeFiles/rgbd_noise.dir/src/add_noise_rgbd.cpp.o[0m
