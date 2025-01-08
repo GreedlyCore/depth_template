@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <launch>
   <!-- Run pointcloud_to_laserscan node -->
   <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan" output="screen">

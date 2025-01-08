@@ -9,7 +9,7 @@ from tf.transformations import quaternion_from_euler
 SCRIPTS_PATH = '/home/sonieth/ros/depth_template/src/grid-mapping-in-ROS/scripts' 
 sys.path.insert(0, SCRIPTS_PATH)
 
-from bresenham import *
+# from bresenham import *
 
 TRESHOLD_P_FREE = 0.3
 TRESHOLD_P_OCC = 0.6
@@ -46,7 +46,6 @@ class GridMap:
 		self.X_lim = X_lim
 		self.Y_lim = Y_lim
 		self.resolution = resolution
-		#setup for simple insverse model
 		self.alpha = a
 		self.beta = b
 		x = np.arange(start = X_lim[0], stop = X_lim[1] + resolution, step = resolution)
@@ -161,11 +160,8 @@ class GridMap:
 		Check if pixel (x,y) is within the map bounds
 		"""
 		if x >= 0 and x < self.get_shape()[0] and y >= 0 and y < self.get_shape()[1]:
-			
 			return True 
-
 		else:
-
 			return False
 
 	def find_neighbours(self, x, y):

@@ -1,1 +1,1 @@
-/home/sonieth/ros/depth_template/src/depth_gazebo
+/home/sonieth/ros/depth_template/src/depth_gazebo;/home/sonieth/ros/depth_template/src/depthimage_to_laserscan;/home/sonieth/ros/depth_template/src/m-explore/explore;/home/sonieth/ros/depth_template/src/m-explore/map_merge;/home/sonieth/ros/depth_template/src/orb_slam_2_ros;/home/sonieth/ros/depth_template/src/orb_slam3_ros;/home/sonieth/ros/depth_template/src/realsense2_description;/home/sonieth/ros/depth_template/src/realsense_gazebo_plugin;/home/sonieth/ros/depth_template/src/solution_maze

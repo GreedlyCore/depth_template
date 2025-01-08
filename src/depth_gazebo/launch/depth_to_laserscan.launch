@@ -1,5 +1,4 @@
 <launch>
-
   <!-- Depth Image to Laser Scan Node -->
   <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" args="">
 
@@ -14,7 +13,5 @@
     <param name="range_max"       type="double" value="10.0"/> <!--default: 10m. Ranges less than this are considered +Inf. -->
     <param name="output_frame_id" type="str"    value="camera_bottom_screw_frame"/>
     <!-- <param name="output_frame_id" type="str"    value="camera_depth_frame"/> default: camera_depth_frame. Frame id of the laser scan. -->
-	
   </node>
-	
 </launch>

@@ -9,7 +9,10 @@
 
     <gazebo>
         <plugin name="mecanum" filename="libmecanum.so">
-        <!-- <publishOdomTF>true</publishOdomTF> -->
+        <publishOdomTF>true</publishOdomTF>
+        <publishOdom>true</publishOdom>
+        <publishWheelTF>false</publishWheelTF>
+        <publishWheelJointState>true</publishWheelJointState>
         </plugin>
     </gazebo>
 

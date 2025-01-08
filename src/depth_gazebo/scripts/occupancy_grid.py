@@ -14,7 +14,7 @@ from transformations import *
 # Constants
 FLOOR_SIZE_X = 50  # meters
 FLOOR_SIZE_Y = 50  # meters
-RESOLUTION = 0.1  # meters per cell
+RESOLUTION = 0.05  # meters per cell
 WORLD_ORIGIN_X = -FLOOR_SIZE_X / 2.0
 WORLD_ORIGIN_Y = -FLOOR_SIZE_Y / 2.0
 ROBOT_ORIGIN_X = 0; ROBOT_ORIGIN_Y = 0; ROBOT_ORIGIN_THETA = 0;
@@ -29,10 +29,8 @@ class Mapping:
         rospy.init_node('mapping_node', anonymous=False)
         rospy.loginfo("creation of the map -- started.")
         self.rate = rospy.Rate(30) 
-        # Initialize tf2
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
-        # for scan msg
         self.from_frame = "lidar_link" #"camera_bottom_screw_frame" 
         self.to_frame = "map"
 
@@ -67,7 +65,7 @@ class Mapping:
 
         self.angles = np.linspace(self.angle_min, self.angle_max, len(test_scan.ranges))
 
-        print(f"INVERSE_MODEL_CONFIG:\nl0: {self.l0}  \nl_occ: {self.OCC_L} \nl_free: {self.FREE_L} \nalpha/2 coeff: {self.alpha} \nbeta/2 coeff: {self.beta}")
+        # print(f"INVERSE_MODEL_CONFIG:\nl0: {self.l0}  \nl_occ: {self.OCC_L} \nl_free: {self.FREE_L} \nalpha/2 coeff: {self.alpha} \nbeta/2 coeff: {self.beta}")
 
         self.occupancy_grid_msg = OccupancyGrid()
         self.occupancy_grid_msg.header.frame_id = 'world'
@@ -124,7 +122,6 @@ class Mapping:
         """
         Publish an OccupancyGrid to the /map topic.
         """
-
         self.occupancy_grid_msg.header.stamp = rospy.Time.now()
         # row-major order
         # map = self.likelihood_field * 100
@@ -204,7 +201,7 @@ class Mapping:
                 if r < dist: dist = r
             if dist == 1000: 
                 dist = 0
-                rospy.loginfo("info message")
+                # rospy.loginfo("info message")
             
             q =  self.laser_z_hit * np.exp(-(dist ** 2) / (2 * self.laser_sigma_hit ** 2)) + self.z_random/self.range_max
             self.likelihood_field[x, y] = q

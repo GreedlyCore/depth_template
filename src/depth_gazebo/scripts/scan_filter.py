@@ -46,7 +46,7 @@ def laser_scan_callback(scan_msg):
     filtered_scan_msg.angle_min = scan_msg.angle_min
     filtered_scan_msg.angle_max = scan_msg.angle_max
     filtered_scan_msg.angle_increment = scan_msg.angle_increment
-    filtered_scan_msg.time_increment =  100#scan_msg.time_increment
+    filtered_scan_msg.time_increment = scan_msg.time_increment
     filtered_scan_msg.scan_time = scan_msg.scan_time
     filtered_scan_msg.range_min = scan_msg.range_min
     filtered_scan_msg.range_max = scan_msg.range_max
@@ -57,8 +57,6 @@ def laser_scan_callback(scan_msg):
 
 if __name__ == '__main__':
     rospy.init_node('laser_scan_nan_filter')
-
     scan_sub = rospy.Subscriber('/scan', LaserScan, laser_scan_callback)
-    scan_pub = rospy.Publisher('/scan_filtered', LaserScan, queue_size=10)
-
+    scan_pub = rospy.Publisher('/scan_filtered', LaserScan, queue_size=5)
     rospy.spin()

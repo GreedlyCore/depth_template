@@ -51,4 +51,8 @@ qtcreator-*
 .#*
 
 # Catkin custom files
-CATKIN_IGNORE
+.catkin_tools/*
+
+# custom packages
+src/orb_slam_2_ros/
+src/orb_slam_3_ros/

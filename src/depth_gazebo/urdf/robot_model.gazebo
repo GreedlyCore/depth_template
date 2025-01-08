@@ -11,6 +11,8 @@
     <gazebo reference="wheel_right">
         <material>Gazebo/Black</material>
     </gazebo>
+                
+    <!-- TURN publishOdom publishOdomTF publishWheelTF TO TRUE if you wanna use odometry data-->
     <gazebo>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
             <updateRate>30.0</updateRate>
@@ -24,8 +26,8 @@
             <robotBaseFrame>base_link</robotBaseFrame>
             <odometryTopic>odom</odometryTopic>
             <odometrySource>encoder</odometrySource>
-            <publishOdom>false</publishOdom>
-            <publishOdomTF>false</publishOdomTF>
+            <publishOdom>true</publishOdom>
+            <publishOdomTF>true</publishOdomTF>
             <publishWheelTF>false</publishWheelTF>
             <publishWheelJointState>true</publishWheelJointState>
             <legacyMode>false</legacyMode>

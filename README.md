@@ -6,30 +6,32 @@
 <img src = "Docs/gazebo.jpg?raw=true" width="70%"/>
 </p>
 
-ROS_VERSION: 1, Noetic
+ROS_DISTRO: Noetic
 
-Here you can see a workspace with all essential packages, other dependencies (if needed) you can instal via classic commands:
+This repo is a workspace with all needed packages, other dependencies you can instal via classic commands:
 ```
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-you can run naive cartographer with:
+You can run naive cartographer with:
 ```
-roslaunch depth_gazebo main_diff_naive.launch
+roslaunch depth_gazebo diff_naive.launch
 ```
-you can run gmapping cartographer with:
+Also you can compare it with [gmapping](http://wiki.ros.org/gmapping) 'cartographer' with:
 ```
-roslaunch depth_gazebo main_diff_gmapping.launch
+roslaunch depth_gazebo diff_gmapping.launch
 ```
-(NOT WORKING YET) -- you can run google cartographer with:
+Also you can compare it with [google cartographer](https://github.com/cartographer-project/cartographer_ros) with:
 ```
-roslaunch depth_gazebo main_google.launch
+roslaunch depth_gazebo diff_google.launch
 ```
-you can run naive cartographer with omni wheeled mobile robot (have got some problems, unstable):
+You can do the same things but with omnidirectional wheeled platform, commands will be almost the same (still unstable):
 ```
-roslaunch depth_gazebo main_google.launch
+roslaunch depth_gazebo omni_naive.launch
+roslaunch depth_gazebo omni_gmapping.launch
+roslaunch depth_gazebo omni_google.launch
 ```
 
 ## Manual installation of packages & dependencies
@@ -73,9 +75,9 @@ rosrun rqt_tf_tree rqt_tf_tree
 
 ## Acknowledgement
 
-That's not 100% my code, i tryied to bring my not best solution throught pain & mistakes, so i took some references from that github repositories and im grateful to them:
+That's not 100% my code, i took some "references" from github repositories and im grateful to them:
 - [ManuelZ's solution](https://github.com/ManuelZ/robotics_algorithms/tree/main) - he implemented pretty similar algorithm, but for one laser beam
 - [bmaxdk's solution](https://github.com/bmaxdk/ros-noetic-where-am-i-amcl) - pretty cool example for working with AMCL package with ROS Noetic
 - [Aleksa Lukovic's solution](https://github.com/lukovicaleksa/grid-mapping-in-ROS) - nice drawing of map realization, but without needed transforms and using OccupancyGrid messages
 
-Mostly, i took the first and the last one solution and triyed to adapt it on my situation, for depth camera purposes
+But i don't recommend to took any parts of code from any of them - write yuor own code, becuase all mistakes and misunderstood will raise from stealing without understanding.

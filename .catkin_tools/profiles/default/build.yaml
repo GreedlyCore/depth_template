@@ -10,12 +10,14 @@ extends: null
 install: false
 install_space: install
 isolate_install: false
-jobs_args: []
+jobs_args:
+- -j1
 licenses:
 - TODO
 log_space: logs
 maintainers: []
 make_args: []
+needs_force: false
 source_space: src
 use_env_cache: false
 use_internal_make_jobserver: true
