@@ -1,8 +1,0 @@
-prefix=/home/sonieth/ros/depth_template/devel/.private/depth_gazebo
-
-Name: depth_gazebo
-Description: Description of depth_gazebo
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

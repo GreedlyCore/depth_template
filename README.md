@@ -8,17 +8,50 @@
 
 ROS_DISTRO: Noetic
 
-This repo is a workspace with all needed packages, other dependencies you can instal via classic commands:
+This repo is only a main package, other ones you need to install to the same workspace via classic commands:
 ```
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-You can run naive cartographer with:
+## Version 1 - mapping with diffdrive + lidar + localization from gazebo
+
+We need to start from simple example, diffdrive car is pretty universal, lidar point is ready to use without any additional filtering, localization from 
+gazebo because for mapping task we need to know exact pose of the robot + all beam lengths at exact moment.
+run with:
 ```
-roslaunch depth_gazebo diff_naive.launch
+roslaunch depth_gazebo diff_lidar_naive.launch
 ```
+
+## Version 2 - mapping with diffdrive + d435 + localization from gazebo
+
+run with:
+```
+roslaunch depth_gazebo diff_d435_naive.launch
+```
+
+## Version 3 - mapping with diffdrive + d435 + localization from gazebo + noise
+
+run with:
+```
+roslaunch depth_gazebo diff_d435_noisy.launch
+```
+
+## Version 3.1 - mapping with omnidrive + d435 + localization from gazebo + noise
+
+run with:
+```
+roslaunch depth_gazebo diff_d435_noisy.launch
+```
+
+## Compare with ground truth 
+
+scale and record ground truth
+how to compare? using teleop create map or using explore package
+
+## Compare with other solutions
+
 Also you can compare it with [gmapping](http://wiki.ros.org/gmapping) 'cartographer' with:
 ```
 roslaunch depth_gazebo diff_gmapping.launch
@@ -54,15 +87,16 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
 ## Useful commands
-- don't forget to build && source it 
+- Don't forget to build && source it 
 ```
 catkin build && source ./devel/setup.bash
 ```
-- check if some topic is posting
+- check how fast some topic is posting
 ```
 rostopic hz /TOPIC_NAME
 ```
 - special flags for debugging big messages via `rostopic echo`: --noarr , --nostr
+- You can tune algorithm parameters online with [Dynamic Reconfigure](http://wiki.ros.org/dynamic_reconfigure/Tutorials) rqt plugin
 - You can save map via cmd:
 ```
 rosrun map_server map_saver --occ 90 --free 10 -f FILE_MAP_NAME map:=/map
@@ -75,9 +109,10 @@ rosrun rqt_tf_tree rqt_tf_tree
 
 ## Acknowledgement
 
-That's not 100% my code, i took some "references" from github repositories and im grateful to them:
+My main references is here
 - [ManuelZ's solution](https://github.com/ManuelZ/robotics_algorithms/tree/main) - he implemented pretty similar algorithm, but for one laser beam
 - [bmaxdk's solution](https://github.com/bmaxdk/ros-noetic-where-am-i-amcl) - pretty cool example for working with AMCL package with ROS Noetic
 - [Aleksa Lukovic's solution](https://github.com/lukovicaleksa/grid-mapping-in-ROS) - nice drawing of map realization, but without needed transforms and using OccupancyGrid messages
+- [Nice paper on lidar inverse model](http://www.diva-portal.org/smash/get/diva2:1900124/FULLTEXT01.pdf)
 
 But i don't recommend to took any parts of code from any of them - write yuor own code, becuase all mistakes and misunderstood will raise from stealing without understanding.

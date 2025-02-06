@@ -1,0 +1,46 @@
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find depth_gazebo)/worlds/mapping3.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="true"/>
+    </include>
+
+
+    <arg name="rviz_conf_file" default="$(find depth_gazebo)/rviz/diff_d435_naive.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf_file)" />
+
+    <param name="robot_description" command="$(find xacro)/xacro $(find depth_gazebo)/urdf/diff_robot_d435.xacro" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+        <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+    <node name="my_robot_model_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model my_robot_model -x 0 -y 0 -z 0"/>
+
+    <!-- TF2: WORLD -> ODOM -->
+    <node name="tf2_world_to_odom" pkg="depth_gazebo" type="world_to_odom_broadcaster.py"/>
+    <!-- TF2: ODOM -> BASE_LINK (STATIC TF2) -->
+    <node name="tf2_odom_to_base_link" pkg="depth_gazebo" type="odom_to_base_link_broadcaster.py"/>
+    <!-- map bayes binary static filter -->
+    <node name="mapping_node" pkg="depth_gazebo" type="occupancy_grid_d435.py" output="screen">
+        <param name="alpha" value="0.1" />
+        <param name="beta" value="0.1" />
+    </node>
+
+    <!-- remove ground plane from point cloud -->
+    <node name="pcl_ground_removal" pkg="depth_gazebo" type="pcl_proccessing"/>
+    <!-- <node name="pcl_to_ls" pkg="depth_gazebo" type="pcl_to_laserscan.py"/> -->
+    <!-- provide depth_image -> laserscan msg -->
+    <include file="$(find depth_gazebo)/launch/depth_to_laserscan.launch"/>
+
+    <!-- remove NaN and +inf & -inf from laserscan msg -->
+    <node name="scan_filter_node" pkg="depth_gazebo" type="scan_filter.py"/>
+    
+
+    <!-- For debug purposes, you can comment it -->
+    <node pkg="rqt_graph" type="rqt_graph" name="rqt_graph" output="screen"/>
+    <node pkg="rqt_tf_tree" type="rqt_tf_tree" name="rqt_tf_tree" output="screen"/>
+</launch>
