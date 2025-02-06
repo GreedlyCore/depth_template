@@ -23,6 +23,10 @@ run with:
 ```
 roslaunch depth_gazebo diff_lidar_naive.launch
 ```
+below is overlapped - ground truth (screenshot from gazebo) and scaled+rotated a bit occupancy grid
+<p align="center">
+<img src = "Docs/overlap_map_v1.jpg?raw=true" width="50%"/>
+</p>
 
 ## Version 2 - mapping with diffdrive + d435 + localization from gazebo
 
