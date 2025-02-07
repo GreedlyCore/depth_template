@@ -2,18 +2,18 @@
 <launch>
   <!-- Run pointcloud_to_laserscan node -->
   <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan" output="screen">
-    <remap from="cloud_in" to="/camera/depth/color/points"/>
+    <remap from="cloud_in" to="/output"/>
     <remap from="scan" to="/scan"/>
-    <param name="target_frame" value="camera_bottom_screw_frame"/>
+    <param name="target_frame" value="camera_link"/>
     <param name="transform_tolerance" value="0.01"/>
     <param name="min_height" value="0.0"/>
     <param name="max_height" value="1.0"/>
-    <param name="angle_min" value="-0.61"/> <!-- -70/2 deg --> <!-- -M_PI/2 -->
-    <param name="angle_max" value="+0.61"/> <!-- +70/2 deg --> <!-- M_PI/2 -->
-    <param name="angle_increment" value="0.0087"/> <!-- M_PI/360.0 -->
+    <param name="angle_min" value="-0.7853"/> <!-- -90/2 deg --> <!-- -M_PI/4 -->
+    <param name="angle_max" value="+0.7853"/> <!-- +90/2 deg --> <!-- M_PI/4 -->
+    <param name="angle_increment" value="0.0043"/> <!-- M_PI/(2*360.0) -->
     <param name="scan_time" value="0.3333"/>
-    <param name="range_min" value="0.45"/>
-    <param name="range_max" value="4.0"/>
+    <param name="range_min" value="0.2"/>
+    <param name="range_max" value="10.0"/>
     <param name="use_inf" value="true"/>
     <param name="inf_epsilon" value="1.0"/>
     <param name="concurrency_level" value="1"/>

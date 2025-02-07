@@ -1,6 +1,6 @@
 <launch>
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find depth_gazebo)/worlds/mapping3.world"/>
+        <arg name="world_name" value="$(find depth_gazebo)/worlds/mapping2.world"/>
         <arg name="paused" value="false"/>
         <arg name="use_sim_time" value="true"/>
         <arg name="gui" value="true"/>
@@ -34,7 +34,8 @@
     <node name="pcl_ground_removal" pkg="depth_gazebo" type="pcl_proccessing"/>
     <!-- <node name="pcl_to_ls" pkg="depth_gazebo" type="pcl_to_laserscan.py"/> -->
     <!-- provide depth_image -> laserscan msg -->
-    <include file="$(find depth_gazebo)/launch/depth_to_laserscan.launch"/>
+    <!-- <include file="$(find depth_gazebo)/launch/depth_to_laserscan.launch"/> -->
+    <include file="$(find depth_gazebo)/launch/pointcloud_to_laserscan.launch"/>
 
     <!-- remove NaN and +inf & -inf from laserscan msg -->
     <node name="scan_filter_node" pkg="depth_gazebo" type="scan_filter.py"/>

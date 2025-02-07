@@ -28,21 +28,22 @@ below is overlapped - ground truth (screenshot from gazebo) and scaled+rotated a
 <img src = "Docs/overlap_map_v1.jpg?raw=true" width="50%"/>
 </p>
 
-## Version 2 - mapping with diffdrive + d435 + localization from gazebo
 
-run with:
+## Version 2 - mapping with diffdrive + d435 + localization from gazebo + noise
+It has already noises in version 2, so we can setup it in `realsense2_description` package --> `_d435.gazebo.xacro` file, look for such tags:
+```
+<noise>
+    <type>gaussian</type>
+    <mean>1.0</mean>
+    <stddev>0.7</stddev>
+</noise>
+```
+Setup it if you want, and run with:
 ```
 roslaunch depth_gazebo diff_d435_naive.launch
 ```
 
-## Version 3 - mapping with diffdrive + d435 + localization from gazebo + noise
-
-run with:
-```
-roslaunch depth_gazebo diff_d435_noisy.launch
-```
-
-## Version 3.1 - mapping with omnidrive + d435 + localization from gazebo + noise
+## Version 3 - mapping with omnidrive + d435 + localization from gazebo + noise
 
 run with:
 ```
@@ -110,6 +111,10 @@ rosrun map_server map_saver --occ 90 --free 10 -f FILE_MAP_NAME map:=/map
 rosrun rqt_tf_tree rqt_tf_tree
 ```
 
+
+## Conclusion
+
+Researched about occupancy grid && static bayes filtering, PCL library, TF2. There will be pdf report available soon.
 
 ## Acknowledgement
 
